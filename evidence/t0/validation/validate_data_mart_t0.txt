@@ -1,0 +1,157 @@
+      tabela      | quantidade 
+------------------+------------
+ dim_date         |        801
+ dim_customer     |      99442
+ dim_order_status |          9
+ dim_product      |      32952
+ dim_seller       |       3096
+(5 rows)
+
+      tabela      | kimball | data_mart | diferenca 
+------------------+---------+-----------+-----------
+ dim_date         |     801 |       801 |         0
+ dim_customer     |   99442 |     99442 |         0
+ dim_order_status |       9 |         9 |         0
+ dim_product      |   32952 |     32952 |         0
+ dim_seller       |    3096 |      3096 |         0
+(5 rows)
+
+ customers_diferentes 
+----------------------
+                    0
+(1 row)
+
+ statuses_diferentes 
+---------------------
+                   0
+(1 row)
+
+ products_diferentes 
+---------------------
+                   0
+(1 row)
+
+ sellers_diferentes 
+--------------------
+                  0
+(1 row)
+
+ dates_diferentes 
+------------------
+                0
+(1 row)
+
+     tabela      | quantidade 
+-----------------+------------
+ fact_order      |      99441
+ fact_order_item |     112650
+(2 rows)
+
+ total_linhas | orders_distintos | duplicidades 
+--------------+------------------+--------------
+        99441 |            99441 |            0
+(1 row)
+
+ total_linhas | graos_distintos | duplicidades 
+--------------+-----------------+--------------
+       112650 |          112650 |            0
+(1 row)
+
+     tabela      | kimball | data_mart | diferenca 
+-----------------+---------+-----------+-----------
+ fact_order      |   99441 |     99441 |         0
+ fact_order_item |  112650 |    112650 |         0
+(2 rows)
+
+ customer_desconhecido | status_desconhecido | purchase_date_desconhecida | delivered_date_desconhecida | estimated_date_desconhecida 
+-----------------------+---------------------+----------------------------+-----------------------------+-----------------------------
+                     0 |                   0 |                          0 |                        2965 |                           0
+(1 row)
+
+ customer_desconhecido | status_desconhecido | purchase_date_desconhecida | product_desconhecido | seller_desconhecido 
+-----------------------+---------------------+----------------------------+----------------------+---------------------
+                     0 |                   0 |                          0 |                    0 |                   0
+(1 row)
+
+ orders_diferentes 
+-------------------
+                 0
+(1 row)
+
+ itens_diferentes 
+------------------
+                0
+(1 row)
+
+ kimball_pedidos_sem_itens | mart_pedidos_sem_itens 
+---------------------------+------------------------
+                       775 |                    775
+(1 row)
+
+ kimball_price | mart_price  | diferenca 
+---------------+-------------+-----------
+   13591643.70 | 13591643.70 |      0.00
+(1 row)
+
+ kimball_freight | mart_freight | diferenca 
+-----------------+--------------+-----------
+      2251909.54 |   2251909.54 |      0.00
+(1 row)
+
+ pedidos_valor_diferente 
+-------------------------
+                       0
+(1 row)
+
+ pedidos_tempo_diferente 
+-------------------------
+                       0
+(1 row)
+
+ pedidos_atraso_diferente 
+--------------------------
+                        0
+(1 row)
+
+ kimball_delivered | mart_delivered 
+-------------------+----------------
+             96478 |          96478
+(1 row)
+
+ kimball_itens_delivered | mart_itens_delivered 
+-------------------------+----------------------
+                  110197 |               110197
+(1 row)
+
+ kimball_valor_bruto | mart_valor_bruto 
+---------------------+------------------
+         13221498.11 |      13221498.11
+(1 row)
+
+ kimball_frete | mart_frete 
+---------------+------------
+    2198275.64 | 2198275.64
+(1 row)
+
+ kimball_valor_calculado | mart_valor_calculado 
+-------------------------+----------------------
+             15419773.75 |          15419773.75
+(1 row)
+
+ kimball_ticket_medio |  mart_ticket_medio   
+----------------------+----------------------
+ 159.8268387611683493 | 159.8268387611683493
+(1 row)
+
+ order_status | kimball | data_mart | diferenca 
+--------------+---------+-----------+-----------
+ approved     |       2 |         2 |         0
+ canceled     |     625 |       625 |         0
+ created      |       5 |         5 |         0
+ delivered    |   96478 |     96478 |         0
+ invoiced     |     314 |       314 |         0
+ processing   |     301 |       301 |         0
+ shipped      |    1107 |      1107 |         0
+ unavailable  |     609 |       609 |         0
+(8 rows)
+

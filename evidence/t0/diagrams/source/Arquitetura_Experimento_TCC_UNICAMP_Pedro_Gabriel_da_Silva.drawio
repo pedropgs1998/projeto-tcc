@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="arquitetura-do-experimento" name="Arquitetura do Experimento">
+    <mxGraphModel dx="1471" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#1f1f1f;" value="&lt;b&gt;Arquitetura e Evolução do Experimento&lt;/b&gt;&lt;br&gt;&lt;font size=&quot;3&quot;&gt;Comparação entre Kimball e Data Vault 2.0&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="790" x="465" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="olist" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Fonte de Dados&lt;/b&gt;&lt;br&gt;Dataset Olist CSV" vertex="1">
+          <mxGeometry height="80" width="280" x="720" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="raw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;RAW&lt;/b&gt;&lt;br&gt;Fonte comum às duas arquiteturas" vertex="1">
+          <mxGeometry height="80" width="280" x="720" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="kimball" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Arquitetura A&lt;/b&gt;&lt;br&gt;Kimball dimensional" vertex="1">
+          <mxGeometry height="80" width="180" x="670" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="vault" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Arquitetura B&lt;/b&gt;&lt;br&gt;Data Vault 2.0 - Raw Vault" vertex="1">
+          <mxGeometry height="80" width="180" x="870" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="mart" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;align=center;verticalAlign=middle;strokeColor=#6C8EBF;" value="&lt;b&gt;Data Mart Dimensional&lt;/b&gt;&lt;br&gt;Camada de consumo" vertex="1">
+          <mxGeometry height="80" width="180" x="870" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="q" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="Contrato Analítico&lt;div&gt;Q1, Q2 e Q3&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="760" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="compare" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;Avaliação Experimental&lt;/b&gt;&lt;div&gt;E&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;quivalência analítica, impacto estrutural, operacional,&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;histórico/traceabilidade, desempenho.&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="360" x="680" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="olist" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;" target="raw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" source="raw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="kimball">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="440" />
+              <mxPoint x="760" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" source="raw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="vault">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="440" />
+              <mxPoint x="960" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" source="vault" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;" target="mart">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" source="kimball" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="760" />
+              <mxPoint x="860" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a6" edge="1" parent="1" source="mart" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="760" />
+              <mxPoint x="860" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a7" edge="1" parent="1" source="q" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;" target="compare">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,237 @@
+ pedidos_sem_itens 
+-------------------
+               775
+(1 row)
+
+ order_status | quantidade 
+--------------+------------
+ unavailable  |        603
+ canceled     |        164
+ created      |          5
+ invoiced     |          2
+ shipped      |          1
+(5 rows)
+
+       product_category_name       | quantidade_produtos 
+-----------------------------------+---------------------
+ cama_mesa_banho                   |                3029
+ esporte_lazer                     |                2867
+ moveis_decoracao                  |                2657
+ beleza_saude                      |                2444
+ utilidades_domesticas             |                2335
+ automotivo                        |                1900
+ informatica_acessorios            |                1639
+ brinquedos                        |                1411
+ relogios_presentes                |                1329
+ telefonia                         |                1134
+ bebes                             |                 919
+ perfumaria                        |                 868
+ papelaria                         |                 849
+ fashion_bolsas_e_acessorios       |                 849
+ cool_stuff                        |                 789
+ ferramentas_jardim                |                 753
+ pet_shop                          |                 719
+                                   |                 610
+ eletronicos                       |                 517
+ construcao_ferramentas_construcao |                 400
+ eletrodomesticos                  |                 370
+ malas_acessorios                  |                 349
+ consoles_games                    |                 317
+ moveis_escritorio                 |                 309
+ instrumentos_musicais             |                 289
+ eletroportateis                   |                 231
+ casa_construcao                   |                 225
+ livros_interesse_geral            |                 216
+ fashion_calcados                  |                 173
+ moveis_sala                       |                 156
+(30 rows)
+
+ produtos_com_multiplos_pedidos 
+--------------------------------
+                          13387
+(1 row)
+
+            product_id            | pedidos_distintos 
+----------------------------------+-------------------
+ 99a4788cb24856965c36a24e339b6058 |               467
+ aca2eb7d00ea1a7b8ebd4e68314663af |               431
+ 422879e10f46682990de24d770e7f83d |               352
+ d1c427060a0f73f6b889a5c7c61f2ac4 |               323
+ 389d119b48cf3043d311335e499d9c6b |               311
+ 53b36df67ebb7c41585e8d54d6772e08 |               306
+ 368c6c730842d78016ad823897a372db |               291
+ 53759a2ecddad2bb87a079a1f1519f73 |               287
+ 154e7e31ebfa092203795c972e5804a6 |               269
+ 2b4609f8948be18874494203496bc318 |               259
+ 3dd2a17168ec895c781a9191c1e95ad7 |               255
+ 7c1bd920dbdf22470b68bde975dd3ccf |               225
+ e0d64dcfaa3b6db5c54ca298ae101d05 |               194
+ 5a848e4ab52fd5445cdc07aab1c40e48 |               194
+ bb50f2e236e5eea0100680137654686c |               187
+ a62e25e09e05e6faf31d90c6ec1aa3d1 |               172
+ 42a2c92a0979a949ca4ea89ec5c7b934 |               160
+ a92930c327948861c015c919a0bcb4a8 |               158
+ 35afc973633aaeb6b877ff57b2793310 |               156
+ e53e557d5a159f5aa2c5e995dfdf244b |               156
+(20 rows)
+
+ produtos_vendidos_em_datas_diferentes 
+---------------------------------------
+                                 13271
+(1 row)
+
+            product_id            | pedidos_distintos |   primeira_venda    |    ultima_venda     |     intervalo     
+----------------------------------+-------------------+---------------------+---------------------+-------------------
+ 027cdd14a677a5834bc67a9789db5021 |                38 | 2016-10-06 17:42:49 | 2018-08-24 19:01:02 | 687 days 01:18:13
+ 9fe172fa8e662ca8572cf12abf8bce23 |                31 | 2016-10-08 04:01:53 | 2018-08-24 16:22:53 | 685 days 12:21:00
+ a671b5c0b737258c5a3262826e3dd9c5 |                 2 | 2016-10-06 13:02:32 | 2018-08-22 20:55:15 | 685 days 07:52:43
+ e9b3cf27d68caa64832c4a7c460abcb9 |                11 | 2016-10-06 08:58:04 | 2018-08-21 18:47:23 | 684 days 09:49:19
+ 817e1c2d22418c36386406ccacfa53e8 |                32 | 2016-10-04 10:16:04 | 2018-08-19 10:47:22 | 684 days 00:31:18
+ 8bff0b13faf092077c3bba691c07ff16 |                 4 | 2016-10-06 10:13:53 | 2018-08-13 18:39:22 | 676 days 08:25:29
+ 4c7d4a2efde21e3bf1660926fabc6a9d |                 9 | 2016-10-04 17:08:39 | 2018-08-07 22:32:02 | 672 days 05:23:23
+ f3dd572f31692bb5b6ab21d2af0673b1 |                 3 | 2016-10-06 16:17:56 | 2018-08-08 19:19:54 | 671 days 03:01:58
+ 8814a3da37fb9673a5ac06f82a2a00a9 |                 4 | 2016-10-08 08:05:21 | 2018-08-04 13:32:22 | 665 days 05:27:01
+ 95c40b993a22463c83beb5c51a03d46c |                20 | 2016-10-06 09:07:52 | 2018-07-22 16:42:36 | 654 days 07:34:44
+ a694f2632fae82ef419fd71587103dc9 |                 7 | 2016-10-07 22:35:59 | 2018-07-23 20:51:50 | 653 days 22:15:51
+ b73f6899a58fe7a37e55149e9a11c717 |                 8 | 2016-10-04 18:52:56 | 2018-07-14 16:36:52 | 647 days 21:43:56
+ 33fac76e7f17367dedaef7954bbb33b4 |                20 | 2016-10-10 16:39:37 | 2018-07-19 19:24:22 | 647 days 02:44:45
+ 0fc6914383c2bea767a9562c9d8b43a1 |                16 | 2016-10-05 08:01:47 | 2018-07-03 15:26:45 | 636 days 07:24:58
+ cf78006a2a6b0429b9663edd99bb38f9 |                20 | 2016-10-09 13:57:42 | 2018-07-02 11:01:16 | 630 days 21:03:34
+ e095c986136fd680308f08bc98f20a53 |                 2 | 2016-10-04 16:02:18 | 2018-06-26 22:07:14 | 630 days 06:04:56
+ 2929be0cb603321a26091c3f376d52df |                 2 | 2016-10-06 17:10:05 | 2018-06-16 21:16:56 | 618 days 04:06:51
+ e24f73b7631ee3fbb2ab700a9acaa258 |                17 | 2016-10-09 15:39:56 | 2018-06-17 09:49:56 | 615 days 18:10:00
+ fd8a5b9a8a79d7ba0739d69be5dc5aa1 |                 2 | 2016-10-08 01:28:14 | 2018-06-11 17:33:45 | 611 days 16:05:31
+ b74d57e3377dd78aace6d070fc48cc88 |                22 | 2017-01-10 13:58:33 | 2018-08-27 10:46:11 | 593 days 20:47:38
+(20 rows)
+
+ sellers_com_multiplos_produtos 
+--------------------------------
+                           2349
+(1 row)
+
+            seller_id             | produtos_distintos 
+----------------------------------+--------------------
+ 4a3ca9315b744ce9f8e9374361493884 |                399
+ cca3071e3e9bb7d12640c9fbe2301306 |                322
+ d91fb3b7d041e83b64a00a3edfb37e4f |                315
+ fa1c13f2614d7b5c4749cbc52fecda94 |                289
+ 7142540dd4c91e2237acb7e911c4eba2 |                266
+ 6560211a19b47992c3666cc44a7e94c0 |                256
+ da8622b14eb17ae2831f4ac5b9dab84a |                222
+ ea8482cd71df3c1969d7b9473ff13abc |                220
+ 3d871de0142ce09b7081e2b9d1733cb1 |                202
+ 7c67e1448b00f6e969d365cea6b010ab |                198
+ 46dc3b2cc0980fb8ec44634e21d2718e |                189
+ 7e93a43ef30c4f03f38b393420bc753a |                186
+ e5a3438891c0bfdb9394643f95273d8e |                185
+ b2ba3715d723d245138f291a6fe42594 |                183
+ 77530e9772f57a62c906e1c21538ab82 |                171
+ dc4a0fc896dc34b0d5bfec8438291c80 |                167
+ 53e4c6e0f4312d4d2107a8c9cddf45cd |                162
+ 2138ccb85b11a4ec1e37afbd1c8eda1f |                160
+ 1da3aeb70d7989d1e6d9b0e887f97c23 |                155
+ 1025f0e2d44d7041d6cf58b6550e0bfa |                154
+(20 rows)
+
+ produtos_com_multiplos_sellers 
+--------------------------------
+                           1225
+(1 row)
+
+            product_id            | sellers_distintos 
+----------------------------------+-------------------
+ d285360f29ac7fd97640bf0baef03de0 |                 8
+ 69455f41626a745aea9ee9164cb9eafd |                 8
+ 656e0eca68dcecf6a31b8ececfabe3e8 |                 7
+ 36f60d45225e60c7da4558b070ce4b60 |                 7
+ 4298b7e67dc399c200662b569563a2b2 |                 7
+ dbb67791e405873b259e4656bf971246 |                 6
+ be0dbdc3d67d55727a65d4cd696ca73c |                 5
+ e6d3e381889aa6e9d222ad50cb30ac43 |                 5
+ 7dd3fec3502f7ef333da2a73e00db394 |                 5
+ e0d64dcfaa3b6db5c54ca298ae101d05 |                 5
+ 461f43be3bdf8844e65b62d9ac2c7a5a |                 5
+ e5ae72c62ebfa708624f5029d609b160 |                 5
+ 53ea9da485f6aed8a6f03a85831fe021 |                 5
+ c0abb5707b6d57b4e7d9797222a77fc8 |                 5
+ d04e48982547095af81c231c3d581cb6 |                 5
+ e53e557d5a159f5aa2c5e995dfdf244b |                 5
+ 4e5e41fb7d296a6f776c63fee5cb9fac |                 4
+ 4deb009c36a910076a023947a7929201 |                 4
+ 46292acbc08d49b95138891146f7287b |                 4
+ 47cd48073d67f91f09cb5ef9496c920b |                 4
+(20 rows)
+
+   primeiro_pedido   |    ultimo_pedido    
+---------------------+---------------------
+ 2016-09-04 21:15:19 | 2018-10-17 17:30:18
+(1 row)
+
+ review_ids_duplicados 
+-----------------------
+                   789
+(1 row)
+
+            review_id             | quantidade | pedidos_distintos 
+----------------------------------+------------+-------------------
+ 44e9f871226d8a130de3fc39dfbdf0c5 |          3 |                 3
+ 9e25d6e3025e9b9a0fc7f03588d33e2b |          3 |                 3
+ 32415bbf6e341d5d517080a796f79b5c |          3 |                 3
+ 4219a80ab469e3fc9901437b73da3f75 |          3 |                 3
+ 69a1068c3128a14994e3e422e4539e04 |          3 |                 3
+ 832acec9bbf4efe65c3fb6423d8b4ed7 |          3 |                 3
+ 2172867fd5b1a55f98fe4608e1547b4b |          3 |                 3
+ 308316408775d1600dad81bd3184556d |          3 |                 3
+ 38821b5c496b678cf91acc34892805ad |          3 |                 3
+ 39b4603793c1c7f5f36d809b4a218664 |          3 |                 3
+ 4548534449b1f572e357211b90724f1b |          3 |                 3
+ 4d0e6dd087008d1f992d25ef6e1f619f |          3 |                 3
+ 70509c441d994fa03d6c1457930c9024 |          3 |                 3
+ 7b606b0d57b078384f0b58eac1d41d78 |          3 |                 3
+ 0c76e7a547a531e7bf9f0b99cba071c1 |          3 |                 3
+ 1fb4ddc969e6bea80e38deec00393a6f |          3 |                 3
+ 08528f70f579f0c830189efc523d2182 |          3 |                 3
+ 2d6ac45f859465b5c185274a1c929637 |          3 |                 3
+ 3415c9f764e478409e8e0660ae816dd2 |          3 |                 3
+ abbfacb2964f74f6487c9c10ac46daa6 |          3 |                 3
+(20 rows)
+
+ pedidos_sem_review | pedidos_1_review | pedidos_multiplas_reviews | max_reviews_em_um_pedido 
+--------------------+------------------+---------------------------+--------------------------
+                768 |            98126 |                       547 |                        3
+(1 row)
+
+            product_id            |    product_category_name    | qtd_pedidos |   primeira_venda    |    ultima_venda     |     intervalo     
+----------------------------------+-----------------------------+-------------+---------------------+---------------------+-------------------
+ 99a4788cb24856965c36a24e339b6058 | cama_mesa_banho             |         467 | 2017-02-28 11:11:32 | 2018-08-19 18:03:14 | 537 days 06:51:42
+ aca2eb7d00ea1a7b8ebd4e68314663af | moveis_decoracao            |         431 | 2017-07-25 10:50:22 | 2018-08-18 16:37:58 | 389 days 05:47:36
+ 422879e10f46682990de24d770e7f83d | ferramentas_jardim          |         352 | 2017-05-02 18:34:59 | 2018-08-14 09:18:25 | 468 days 14:43:26
+ d1c427060a0f73f6b889a5c7c61f2ac4 | informatica_acessorios      |         323 | 2017-02-15 16:31:44 | 2018-08-22 18:27:48 | 553 days 01:56:04
+ 389d119b48cf3043d311335e499d9c6b | ferramentas_jardim          |         311 | 2017-05-02 18:34:59 | 2018-08-16 23:08:45 | 471 days 04:33:46
+ 53b36df67ebb7c41585e8d54d6772e08 | relogios_presentes          |         306 | 2017-06-11 13:04:43 | 2018-08-01 19:01:08 | 416 days 05:56:25
+ 368c6c730842d78016ad823897a372db | ferramentas_jardim          |         291 | 2017-07-18 10:22:32 | 2018-08-25 20:10:27 | 403 days 09:47:55
+ 53759a2ecddad2bb87a079a1f1519f73 | ferramentas_jardim          |         287 | 2017-04-07 13:27:27 | 2018-08-22 16:31:45 | 502 days 03:04:18
+ 154e7e31ebfa092203795c972e5804a6 | beleza_saude                |         269 | 2017-02-03 22:32:04 | 2018-08-13 13:08:25 | 555 days 14:36:21
+ 2b4609f8948be18874494203496bc318 | beleza_saude                |         259 | 2017-03-09 23:55:22 | 2018-08-27 16:12:22 | 535 days 16:17:00
+ 3dd2a17168ec895c781a9191c1e95ad7 | informatica_acessorios      |         255 | 2018-01-10 19:34:34 | 2018-08-09 14:08:20 | 210 days 18:33:46
+ 7c1bd920dbdf22470b68bde975dd3ccf | beleza_saude                |         225 | 2017-01-31 17:15:33 | 2018-08-21 10:21:33 | 566 days 17:06:00
+ e0d64dcfaa3b6db5c54ca298ae101d05 | relogios_presentes          |         194 | 2017-03-07 16:02:54 | 2018-08-21 12:26:53 | 531 days 20:23:59
+ bb50f2e236e5eea0100680137654686c | beleza_saude                |         187 | 2017-08-18 14:51:39 | 2018-08-26 22:37:58 | 373 days 07:46:19
+ a62e25e09e05e6faf31d90c6ec1aa3d1 | relogios_presentes          |         172 | 2017-11-12 21:31:27 | 2018-08-15 21:41:45 | 276 days 00:10:18
+ 42a2c92a0979a949ca4ea89ec5c7b934 | utilidades_domesticas       |         160 | 2017-05-01 14:48:33 | 2018-04-24 13:21:26 | 357 days 22:32:53
+ a92930c327948861c015c919a0bcb4a8 | relogios_presentes          |         158 | 2017-03-04 10:50:41 | 2018-08-24 23:28:21 | 538 days 12:37:40
+ 35afc973633aaeb6b877ff57b2793310 | casa_conforto               |         156 | 2017-02-28 14:19:37 | 2018-08-13 11:18:25 | 530 days 20:58:48
+ e53e557d5a159f5aa2c5e995dfdf244b | informatica_acessorios      |         156 | 2017-11-30 22:21:04 | 2018-08-06 21:36:12 | 248 days 23:15:08
+ 19c91ef95d509ea33eda93495c4d3481 | beleza_saude                |         155 | 2018-01-27 16:39:17 | 2018-08-21 11:21:23 | 205 days 18:42:06
+ 6cdd53843498f92890544667809f1595 | beleza_saude                |         151 | 2017-01-15 12:41:31 | 2018-08-21 20:53:43 | 583 days 08:12:12
+ 461f43be3bdf8844e65b62d9ac2c7a5a | relogios_presentes          |         144 | 2017-06-11 10:32:14 | 2018-08-05 21:54:15 | 420 days 11:22:01
+ 3fbc0ef745950c7932d5f2a446189725 | beleza_saude                |         144 | 2018-01-20 19:37:42 | 2018-08-22 11:49:11 | 213 days 16:11:29
+ c4baedd846ed09b85f78a781b522f126 | ferramentas_jardim          |         143 | 2017-02-23 14:23:00 | 2018-08-25 11:01:56 | 547 days 20:38:56
+ 7a10781637204d8d10485c71a6108a2e | relogios_presentes          |         142 | 2017-08-06 16:19:28 | 2018-05-12 11:47:38 | 278 days 19:28:10
+ d017a2151d543a9885604dc62a3d9dcc | fashion_bolsas_e_acessorios |         138 | 2017-03-08 16:49:01 | 2018-08-24 14:59:37 | 533 days 22:10:36
+ 0aabfb375647d9738ad0f7b4ea3653b1 | consoles_games              |         138 | 2017-07-10 22:08:53 | 2018-07-16 08:50:17 | 370 days 10:41:24
+ 2028bf1b01cafb2d2b1901fca4083222 | perfumaria                  |         134 | 2017-06-07 20:28:13 | 2018-08-16 20:08:38 | 434 days 23:40:25
+ e0cf79767c5b016251fe139915c59a26 | beleza_saude                |         131 | 2017-10-07 18:35:00 | 2018-08-28 19:27:43 | 325 days 00:52:43
+ 06edb72f1e0c64b14c5b79353f7abea3 | cama_mesa_banho             |         130 | 2017-05-23 23:13:40 | 2018-08-21 10:58:08 | 454 days 11:44:28
+(30 rows)
+

@@ -1,0 +1,245 @@
+    tabela    | quantidade 
+--------------+------------
+ hub_seller   |       3095
+ hub_product  |      32951
+ hub_customer |      96096
+ hub_order    |      99441
+(4 rows)
+
+    tabela    | total_linhas | business_keys_distintas | duplicidades 
+--------------+--------------+-------------------------+--------------
+ hub_seller   |         3095 |                    3095 |            0
+ hub_product  |        32951 |                   32951 |            0
+ hub_customer |        96096 |                   96096 |            0
+ hub_order    |        99441 |                   99441 |            0
+(4 rows)
+
+    tabela    | hashes_inconsistentes 
+--------------+-----------------------
+ hub_order    |                     0
+ hub_customer |                     0
+ hub_product  |                     0
+ hub_seller   |                     0
+(4 rows)
+
+       tabela        | quantidade 
+---------------------+------------
+ link_order_customer |      99441
+ link_order_item     |     112650
+(2 rows)
+
+ total_linhas | pedidos_distintos | relacionamentos_adicionais 
+--------------+-------------------+----------------------------
+        99441 |             99441 |                          0
+(1 row)
+
+ pedidos_com_multiplos_clientes 
+--------------------------------
+                              0
+(1 row)
+
+ total_linhas | graos_distintos | duplicidades 
+--------------+-----------------+--------------
+       112650 |          112650 |            0
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ hashes_inconsistentes 
+-----------------------
+                     0
+(1 row)
+
+ hashes_inconsistentes 
+-----------------------
+                     0
+(1 row)
+
+       tabela       | quantidade 
+--------------------+------------
+ sat_seller         |       3095
+ sat_product        |      32951
+ sat_order          |      99441
+ sat_order_customer |      99441
+ sat_order_item     |     112650
+(5 rows)
+
+       tabela       | min_versoes | max_versoes 
+--------------------+-------------+-------------
+ sat_seller         |           1 |           1
+ sat_product        |           1 |           1
+ sat_order_customer |           1 |           1
+ sat_order          |           1 |           1
+ sat_order_item     |           1 |           1
+(5 rows)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ orders_raw_sem_hub 
+--------------------
+                  0
+(1 row)
+
+ orders_sem_satellite 
+----------------------
+                    0
+(1 row)
+
+ orders_com_payload_diferente 
+------------------------------
+                            0
+(1 row)
+
+ raw_customer_unique_ids | vault_customer_unique_ids 
+-------------------------+---------------------------
+                   96096 |                     96096
+(1 row)
+
+ raw_customer_ids | vault_customer_ids 
+------------------+--------------------
+            99441 |              99441
+(1 row)
+
+ customers_com_payload_diferente 
+---------------------------------
+                               0
+(1 row)
+
+ products_raw_sem_hub 
+----------------------
+                    0
+(1 row)
+
+ products_com_payload_diferente 
+--------------------------------
+                              0
+(1 row)
+
+ raw_categoria_null | vault_categoria_null 
+--------------------+----------------------
+                610 |                  610
+(1 row)
+
+ sellers_raw_sem_hub 
+---------------------
+                   0
+(1 row)
+
+ sellers_com_payload_diferente 
+-------------------------------
+                             0
+(1 row)
+
+ raw_order_items | vault_order_items 
+-----------------+-------------------
+          112650 |            112650
+(1 row)
+
+ itens_raw_sem_link 
+--------------------
+                  0
+(1 row)
+
+ itens_com_relacionamento_diferente 
+------------------------------------
+                                  0
+(1 row)
+
+ itens_com_payload_diferente 
+-----------------------------
+                           0
+(1 row)
+
+  raw_price  | vault_price | diferenca 
+-------------+-------------+-----------
+ 13591643.70 | 13591643.70 |      0.00
+(1 row)
+
+ raw_freight | vault_freight | diferenca 
+-------------+---------------+-----------
+  2251909.54 |    2251909.54 |      0.00
+(1 row)
+
+  raw_total  | vault_total | diferenca 
+-------------+-------------+-----------
+ 15843553.24 | 15843553.24 |      0.00
+(1 row)
+
+ order_status | quantidade_raw | quantidade_vault | diferenca 
+--------------+----------------+------------------+-----------
+ approved     |              2 |                2 |         0
+ canceled     |            625 |              625 |         0
+ created      |              5 |                5 |         0
+ delivered    |          96478 |            96478 |         0
+ invoiced     |            314 |              314 |         0
+ processing   |            301 |              301 |         0
+ shipped      |           1107 |             1107 |         0
+ unavailable  |            609 |              609 |         0
+(8 rows)
+
+ purchase_null | delivered_null | estimated_null 
+---------------+----------------+----------------
+             0 |           2965 |              0
+(1 row)
+
+ pedidos_sem_customer_link 
+---------------------------
+                         0
+(1 row)
+
+ customer_links_sem_satellite 
+------------------------------
+                            0
+(1 row)
+
+ item_links_sem_satellite 
+--------------------------
+                        0
+(1 row)
+
+ pedidos_sem_itens_vault 
+-------------------------
+                     775
+(1 row)
+
+ pedidos_sem_itens_raw 
+-----------------------
+                   775
+(1 row)
+
+ hub_order | hub_customer | hub_product | hub_seller | link_order_customer | link_order_item | sat_order | sat_order_customer | sat_product | sat_seller | sat_order_item 
+-----------+--------------+-------------+------------+---------------------+-----------------+-----------+--------------------+-------------+------------+----------------
+     99441 |        96096 |       32951 |       3095 |               99441 |          112650 |     99441 |              99441 |       32951 |       3095 |         112650
+(1 row)
+

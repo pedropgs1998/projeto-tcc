@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="arquitetura-do-experimento" name="Arquitetura do Experimento">
+    <mxGraphModel dx="1030" dy="596" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1450" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="evo_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#1f1f1f;" value="&lt;b&gt;Evolução controlada dos estados experimentais&lt;/b&gt;" vertex="1">
+          <mxGeometry height="35" width="920" x="360" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="t0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;T0&lt;/b&gt;&lt;br&gt;Baseline" vertex="1">
+          <mxGeometry height="80" width="200" x="360" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;T1&lt;/b&gt;&lt;br&gt;M1 — Pagamentos" vertex="1">
+          <mxGeometry height="80" width="200" x="600" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;T2&lt;/b&gt;&lt;br&gt;M2 — Atributos temporais" vertex="1">
+          <mxGeometry height="80" width="200" x="840" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1f1f1f;fontSize=13;align=center;verticalAlign=middle;" value="&lt;b&gt;T3&lt;/b&gt;&lt;br&gt;M3 — Histórico de categoria" vertex="1">
+          <mxGeometry height="80" width="200" x="1080" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="et01" edge="1" parent="1" source="t0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;" target="t1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="et12" edge="1" parent="1" source="t1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;" target="t2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="et23" edge="1" parent="1" source="t2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4a6fa5;fontSize=10;endArrow=block;endFill=1;" target="t3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="evo_caption" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#555555;" value="A mesma sequência T0 → T1 → T2 → T3 é aplicada às duas arquiteturas para medir o impacto incremental de cada mudança." vertex="1">
+          <mxGeometry height="35" width="920" x="360" y="1220" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

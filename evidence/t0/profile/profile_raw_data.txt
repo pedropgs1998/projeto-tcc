@@ -1,0 +1,246 @@
+ total_linhas | pedidos_distintos 
+--------------+-------------------
+        99441 |             99441
+(1 row)
+
+ order_id | quantidade 
+----------+------------
+(0 rows)
+
+ order_status | quantidade 
+--------------+------------
+ delivered    |      96478
+ shipped      |       1107
+ canceled     |        625
+ unavailable  |        609
+ invoiced     |        314
+ processing   |        301
+ created      |          5
+ approved     |          2
+(8 rows)
+
+ pedidos_sem_data_entrega 
+--------------------------
+                     2965
+(1 row)
+
+ pedidos_entregues 
+-------------------
+             96478
+(1 row)
+
+ total_linhas | customer_ids | customer_unique_ids 
+--------------+--------------+---------------------
+        99441 |        99441 |               96096
+(1 row)
+
+ unique_customers_com_multiplos_customer_ids 
+---------------------------------------------
+                                        2997
+(1 row)
+
+        customer_unique_id        | qtd_customer_ids 
+----------------------------------+------------------
+ 8d50f5eadf50201ccdcedfb9e2ac8455 |               17
+ 3e43e6105506432c953e165fb2acf44c |                9
+ ca77025e7201e3b30c44b472ff346268 |                7
+ 6469f99c1f9dfae7733b25662e7f1782 |                7
+ 1b6c7548a2a1f9037c1fd3ddfed95f33 |                7
+ f0e310a6839dce9de1638e0fe5ab282a |                6
+ 12f5d6e1cbf93dafd9dcc19095df0b3d |                6
+ 63cfc61cee11cbe306bff5857d00bfe4 |                6
+ 47c1a3033b8b77b3ab6e109eb4d5fdf3 |                6
+ dc813062e0fc23409cd255f7f53c7074 |                6
+ de34b16117594161a6a89c50b289d35a |                6
+ 5e8f38a9a1c023f3db718edcf926a2db |                5
+ 56c8638e7c058b98aae6d74d2dd6ea23 |                5
+ fe81bb32c243a86b2f86fbf053fe6140 |                5
+ 4e65032f1f574189fb793bac5a867bbc |                5
+ 35ecdf6858edc6427223b64804cf028e |                5
+ 394ac4de8f3acb14253c177f0e15bc58 |                5
+ b4e4f24de1e8725b74e4a1f4975116ed |                5
+ 74cb1ad7e6d5674325c1f99b5ea30d82 |                5
+ 6358b15ef7fa9b1210f1a5735cabd3d9 |                4
+(20 rows)
+
+ total_itens | pedidos_com_itens 
+-------------+-------------------
+      112650 |             98666
+(1 row)
+
+ pedidos_1_item | pedidos_multiplos_itens | max_itens_em_um_pedido | media_itens_por_pedido 
+----------------+-------------------------+------------------------+------------------------
+          88863 |                    9803 |                     21 |     1.1417306873695093
+(1 row)
+
+ pedidos_1_vendedor | pedidos_multiplos_vendedores | max_vendedores_em_um_pedido 
+--------------------+------------------------------+-----------------------------
+              97388 |                         1278 |                           5
+(1 row)
+
+ total_linhas | order_item_ids_distintos 
+--------------+--------------------------
+       112650 |                       21
+(1 row)
+
+ total_linhas | chaves_compostas_distintas 
+--------------+----------------------------
+       112650 |                     112650
+(1 row)
+
+ total_pagamentos | pedidos_com_pagamento 
+------------------+-----------------------
+           103886 |                 99440
+(1 row)
+
+ pedidos_1_pagamento | pedidos_multiplos_pagamentos | max_pagamentos_em_um_pedido | media_pagamentos_por_pedido 
+---------------------+------------------------------+-----------------------------+-----------------------------
+               96479 |                         2961 |                          29 |          1.0447103781174578
+(1 row)
+
+ pedidos_com_multiplos_tipos 
+-----------------------------
+                        2246
+(1 row)
+
+ payment_type | quantidade | valor_total 
+--------------+------------+-------------
+ credit_card  |      76795 | 12542084.19
+ boleto       |      19784 |  2869361.27
+ voucher      |       5775 |   379436.87
+ debit_card   |       1529 |   217989.79
+ not_defined  |          3 |        0.00
+(5 rows)
+
+             order_id             | registros | maior_sequencial 
+----------------------------------+-----------+------------------
+ fa65dad1b0e818e3ccc5cb0e39231352 |        29 |               29
+ ccf804e764ed5650cd8759557269dc13 |        26 |               26
+ 285c2e15bebd4ac83635ccc563dc71f4 |        22 |               22
+ 895ab968e7bb0d5659d16cd74cd1650c |        21 |               21
+ ee9ca989fc93ba09a6eddc250ce01742 |        19 |               19
+ fedcd9f7ccdc8cba3a18defedd1a5547 |        19 |               19
+ 4bfcba9e084f46c8e3cb49b0fa6e6159 |        15 |               15
+ 21577126c19bf11a0b91592e5844ba78 |        15 |               15
+ 3c58bffb70dcf45f12bdf66a3c215905 |        14 |               14
+ 4689b1816de42507a7d63a4617383c59 |        14 |               14
+ cf101c3abd3c061ca9f78c1bbb1125af |        13 |               13
+ 73df5d6adbeea12c8ae03df93f346e86 |        13 |               13
+ 4fb76fa13b108a0d0478483421b0992c |        13 |               13
+ c6492b842ac190db807c15aff21a7dd6 |        12 |               12
+ d744783ed2ace06cac647a9e64dcbcfd |        12 |               12
+ 67d83bd36ec2c7fb557742fb58837659 |        12 |               12
+ 1a611328643ae11146ba09a4425d2e12 |        12 |               12
+ 68986e4324f6a21481df4e6e89abcf01 |        12 |               12
+ 6d58638e32674bebee793a47ac4cbadc |        12 |               12
+ 1d9a9731b9c10fc9cba74e6f74782e8b |        12 |               12
+(20 rows)
+
+ pedidos_comparados | pedidos_equivalentes | pedidos_com_diferenca | maior_diferenca 
+--------------------+----------------------+-----------------------+-----------------
+              98665 |                98362 |                   303 |          182.81
+(1 row)
+
+             order_id             | valor_itens_frete | valor_pago | diferenca 
+----------------------------------+-------------------+------------+-----------
+ ce6d150fb29ada17d2082f4847107665 |           1403.66 |    1586.47 |    182.81
+ 6e5fe7366a2e1bfbf3257dba0af1267f |            287.91 |     406.92 |    119.01
+ 70b742795bc441e94a44a084b6d9ce7a |            466.93 |     578.82 |    111.89
+ 996c7e73600ad3723e8627ab7bef81e4 |            587.90 |     664.43 |     76.53
+ 70b7e94ea46d3e8b5bc12a50186edaf0 |            213.15 |     274.84 |     61.69
+ bc2c82b0ef78d2252b6176d1972db7c9 |            242.01 |     303.02 |     61.01
+ af9ffff2ce6b3defd34fd4c78857a379 |            413.17 |     466.97 |     53.80
+ 262118ce178bb3e4590a3adcf6d62e6b |            177.74 |     126.12 |    -51.62
+ bfdb5bbb06458d600a33d61f5f287472 |            348.93 |     394.36 |     45.43
+ 8d9c0dc8d5a2ce804f6b925d8f8e6c1d |            254.45 |     293.89 |     39.44
+ b7579d24f5b2dd3e20f2e57d0e07d170 |            466.28 |     504.37 |     38.09
+ abf1130bc676c9dcadf91e24f5e30a30 |            459.36 |     496.89 |     37.53
+ b76190a2c095fba255ab46987545a660 |            227.91 |     263.24 |     35.33
+ 32720c0c8b42f4c2cdb07cee5ec2444b |            224.75 |     259.59 |     34.84
+ 6b0ac1bdea322c7060eea92feb9e9a6f |            327.87 |     362.56 |     34.69
+ ee9dfabed586581a184f72e03544b4a2 |            307.50 |     342.12 |     34.62
+ e8295bee3fcc58cbd94f165f36c11f4b |            117.85 |     151.93 |     34.08
+ dd7a24d1088cf9ed90329fb0dee088f4 |            259.31 |     293.07 |     33.76
+ a69aaa894f707814637e9794aa556f0f |            179.35 |     211.87 |     32.52
+ 513a94a0164453b4777d125b836f7ca1 |            208.19 |     240.47 |     32.28
+(20 rows)
+
+ total_reviews | review_ids_distintos | pedidos_com_review 
+---------------+----------------------+--------------------
+         99224 |                98410 |              98673
+(1 row)
+
+ pedidos_com_multiplas_reviews 
+-------------------------------
+                           547
+(1 row)
+
+             order_id             | qtd_reviews 
+----------------------------------+-------------
+ df56136b8031ecd28e200bb18e6ddb2e |           3
+ 8e17072ec97ce29f0e1f111e598b0c85 |           3
+ c88b1d1b157a9999ce368f218a407141 |           3
+ 03c939fd7fd3b38f8485a0f95798f1f6 |           3
+ 61b2314bd576f3d792e46e1d56e51ee6 |           2
+ 95e7f49dc56e12097c265c45527a3941 |           2
+ b9a528ec4ad891d009b3dc50588218f1 |           2
+ 8e350e1e4254bd7c68913b98bde7d3a7 |           2
+ fa350da9efbba83c2957b629bf6c2c7c |           2
+ 5f92ad7a8f00f12846cf6f654966adc4 |           2
+ 9735a2f9279006018ed254377240bf4c |           2
+ b798fc527c548bfa5f069b5b29195275 |           2
+ ff850ba359507b996e8b2fbb26df8d03 |           2
+ 8ff88873f03f1912c00741f8e5ae6c79 |           2
+ dd73d93a25e576d8dae52c7c66b3becf |           2
+ 95287dc5df93f25b90309d5acddbe02e |           2
+ 1041d437bb0a4bcfeb3a107426f2d5f5 |           2
+ b7293e3014a7261f0d26d28a1e927864 |           2
+ 823384842bb58973b0c88e31c6f94da9 |           2
+ 169ab175fb915582d84c0c5c95bb0fe3 |           2
+(20 rows)
+
+ total_produtos | produtos_distintos | categorias 
+----------------+--------------------+------------
+          32951 |              32951 |         73
+(1 row)
+
+ categoria_nula | peso_nulo | comprimento_nulo | altura_nula | largura_nula 
+----------------+-----------+------------------+-------------+--------------
+            610 |         2 |                2 |           2 |            2
+(1 row)
+
+ total_vendedores | vendedores_distintos 
+------------------+----------------------
+             3095 |                 3095
+(1 row)
+
+ orders_sem_customer 
+---------------------
+                   0
+(1 row)
+
+ itens_sem_order 
+-----------------
+               0
+(1 row)
+
+ itens_sem_product 
+-------------------
+                 0
+(1 row)
+
+ itens_sem_seller 
+------------------
+                0
+(1 row)
+
+ pagamentos_sem_order 
+----------------------
+                    0
+(1 row)
+
+ reviews_sem_order 
+-------------------
+                 0
+(1 row)
+

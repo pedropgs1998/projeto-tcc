@@ -1,0 +1,19 @@
+Banco: PostgreSQL 17
+Execução: Docker
+Container: tcc-postgres
+Database: olist_dw
+Usuário: olist_dw
+
+Schemas experimentais:
+- raw
+- kimball
+- data_vault
+- data_mart
+- control
+
+Ferramentas:
+- PostgreSQL
+- Docker / Docker Compose
+- DBeaver
+- Python
+- Git

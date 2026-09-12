@@ -1,0 +1,34 @@
+   kimball   |  data_mart  | diferenca 
+-------------+-------------+-----------
+ 13221498.11 | 13221498.11 |      0.00
+(1 row)
+
+       kimball        |      data_mart       |     diferenca      
+----------------------+----------------------+--------------------
+ 159.8268387611683493 | 159.8268387611683493 | 0.0000000000000000
+(1 row)
+
+DROP TABLE
+SELECT 556
+DROP TABLE
+SELECT 556
+ kimball_linhas | data_mart_linhas 
+----------------+------------------
+            556 |              556
+(1 row)
+
+ kimball_nao_encontrado_no_mart 
+--------------------------------
+                              0
+(1 row)
+
+ mart_nao_encontrado_no_kimball 
+--------------------------------
+                              0
+(1 row)
+
+ grupos_com_diferenca 
+----------------------
+                    0
+(1 row)
+
