@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# PyCharm / IntelliJ
+.idea/
+
+# Dados brutos do Olist
+data/raw/
+
+# Arquivos locais de ambiente
+.env
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs antigos/temporários
+sql/log/

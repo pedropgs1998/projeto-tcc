@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: tcc-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: olist_dw
+      POSTGRES_USER: olist_dw
+      POSTGRES_PASSWORD: olist_dw
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./data/raw:/data/raw:ro
+
+volumes:
+  postgres_data:
