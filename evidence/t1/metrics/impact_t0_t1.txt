@@ -1,0 +1,58 @@
+   camada   | tabelas_t0 | tabelas_t1 | delta_tabelas | colunas_t0 | colunas_t1 | delta_colunas | pk_t0 | pk_t1 | delta_pk | fk_t0 | fk_t1 | delta_fk 
+------------+------------+------------+---------------+------------+------------+---------------+-------+-------+----------+-------+-------+----------
+ kimball    |          7 |          8 |             1 |         53 |         62 |             9 |     7 |     8 |        1 |    10 |    13 |        3
+ data_vault |         11 |         12 |             1 |         62 |         70 |             8 |    11 |    12 |        1 |    10 |    11 |        1
+ data_mart  |          7 |          8 |             1 |         53 |         62 |             9 |     7 |     8 |        1 |    10 |    13 |        3
+(3 rows)
+
+   camada   |   objeto_criado   
+------------+-------------------
+ data_mart  | fact_payment
+ data_vault | sat_order_payment
+ kimball    | fact_payment
+(3 rows)
+
+   camada   |    table_name     | colunas_adicionadas 
+------------+-------------------+---------------------
+ data_mart  | fact_payment      |                   9
+ data_vault | sat_order_payment |                   8
+ kimball    | fact_payment      |                   9
+(3 rows)
+
+   camada   |    table_name     | constraint_type | quantidade 
+------------+-------------------+-----------------+------------
+ data_mart  | fact_payment      | CHECK           |          9
+ data_mart  | fact_payment      | FOREIGN KEY     |          3
+ data_mart  | fact_payment      | PRIMARY KEY     |          1
+ data_vault | sat_order_payment | CHECK           |          8
+ data_vault | sat_order_payment | FOREIGN KEY     |          1
+ data_vault | sat_order_payment | PRIMARY KEY     |          1
+ kimball    | fact_payment      | CHECK           |          9
+ kimball    | fact_payment      | FOREIGN KEY     |          3
+ kimball    | fact_payment      | PRIMARY KEY     |          1
+(9 rows)
+
+   camada   |     tablename     |              indexname               
+------------+-------------------+--------------------------------------
+ data_mart  | fact_payment      | idx_dm_fact_payment_customer_sk
+ data_mart  | fact_payment      | idx_dm_fact_payment_order_id
+ data_mart  | fact_payment      | idx_dm_fact_payment_order_status_sk
+ data_mart  | fact_payment      | idx_dm_fact_payment_purchase_date_sk
+ data_mart  | fact_payment      | pk_dm_fact_payment
+ data_vault | sat_order_payment | idx_sat_order_payment_load_timestamp
+ data_vault | sat_order_payment | idx_sat_order_payment_parent
+ data_vault | sat_order_payment | pk_sat_order_payment
+ kimball    | fact_payment      | idx_fact_payment_customer_sk
+ kimball    | fact_payment      | idx_fact_payment_order_id
+ kimball    | fact_payment      | idx_fact_payment_order_status_sk
+ kimball    | fact_payment      | idx_fact_payment_purchase_date_sk
+ kimball    | fact_payment      | pk_fact_payment
+(13 rows)
+
+ consulta |  situacao  |            impacto            
+----------+------------+-------------------------------
+ Q1       | preservada | nenhuma nova metrica
+ Q2       | alterada   | ticket_medio_pago
+ Q3       | alterada   | valor_pago; ticket_medio_pago
+(3 rows)
+

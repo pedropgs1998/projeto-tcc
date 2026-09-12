@@ -1,0 +1,22 @@
+Estado experimental: T1
+Mudança aplicada: M1 - incorporação da fonte de pagamentos
+
+Data da coleta:
+2026-09-12T18:03:26-03:00
+
+Container:
+tcc-postgres
+
+Database:
+olist_dw
+
+Usuário:
+olist_dw
+
+Fonte adicionada:
+raw.order_payments
+
+Objetos introduzidos em T1:
+kimball.fact_payment
+data_vault.sat_order_payment
+data_mart.fact_payment

@@ -1,0 +1,49 @@
+ fact_payment 
+--------------
+       103886
+(1 row)
+
+ total_linhas | duplicidades 
+--------------+--------------
+       103886 |            0
+(1 row)
+
+ vault_payments | mart_payments 
+----------------+---------------
+         103886 |        103886
+(1 row)
+
+ vault_total | mart_total  | diferenca 
+-------------+-------------+-----------
+ 16008872.12 | 16008872.12 |      0.00
+(1 row)
+
+ customer_sk_zero | order_status_sk_zero | purchase_date_sk_zero 
+------------------+----------------------+-----------------------
+                0 |                    0 |                     0
+(1 row)
+
+ payment_type | quantidade | valor_pago  
+--------------+------------+-------------
+ boleto       |      19784 |  2869361.27
+ credit_card  |      76795 | 12542084.19
+ debit_card   |       1529 |   217989.79
+ not_defined  |          3 |        0.00
+ voucher      |       5775 |   379436.87
+(5 rows)
+
+ pedidos_com_pagamento 
+-----------------------
+                 99440
+(1 row)
+
+ pedidos_com_pagamento | valor_pago_total |  ticket_medio_pago   
+-----------------------+------------------+----------------------
+                 99440 |      16008872.12 | 160.9902666934835076
+(1 row)
+
+ raw_linhas | mart_linhas |  raw_total  | mart_total  
+------------+-------------+-------------+-------------
+     103886 |      103886 | 16008872.12 | 16008872.12
+(1 row)
+

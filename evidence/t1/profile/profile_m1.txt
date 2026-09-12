@@ -1,0 +1,131 @@
+ total_linhas | pedidos_distintos 
+--------------+-------------------
+       103886 |             99440
+(1 row)
+
+ total_linhas | duplicidades_grao 
+--------------+-------------------
+       103886 |                 0
+(1 row)
+
+ order_id | payment_sequential | quantidade 
+----------+--------------------+------------
+(0 rows)
+
+ pagamentos_sem_pedido 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_sem_pagamento 
+-----------------------
+                     1
+(1 row)
+
+             order_id             | order_status 
+----------------------------------+--------------
+ bfbd0f9bdef84302105ad712db648a6c | delivered
+(1 row)
+
+ minimo_pagamentos | maximo_pagamentos |  media_pagamentos  
+-------------------+-------------------+--------------------
+                 1 |                29 | 1.0447103781174578
+(1 row)
+
+ quantidade_pagamentos | quantidade_pedidos 
+-----------------------+--------------------
+                     1 |              96479
+                     2 |               2382
+                     3 |                301
+                     4 |                108
+                     5 |                 52
+                     6 |                 36
+                     7 |                 28
+                     8 |                 11
+                     9 |                  9
+                    10 |                  5
+                    11 |                  8
+                    12 |                  8
+                    13 |                  3
+                    14 |                  2
+                    15 |                  2
+                    19 |                  2
+                    21 |                  1
+                    22 |                  1
+                    26 |                  1
+                    29 |                  1
+(20 rows)
+
+ pedidos_com_multiplos_pagamentos 
+----------------------------------
+                             2961
+(1 row)
+
+ payment_type | quantidade_registros | quantidade_pedidos | valor_pago  
+--------------+----------------------+--------------------+-------------
+ credit_card  |                76795 |              76505 | 12542084.19
+ boleto       |                19784 |              19784 |  2869361.27
+ voucher      |                 5775 |               3866 |   379436.87
+ debit_card   |                 1529 |               1528 |   217989.79
+ not_defined  |                    3 |                  3 |        0.00
+(5 rows)
+
+ pedidos_com_multiplos_tipos_pagamento 
+---------------------------------------
+                                  2246
+(1 row)
+
+ order_id_null | payment_sequential_null | payment_type_null | payment_installments_null | payment_value_null 
+---------------+-------------------------+-------------------+---------------------------+--------------------
+             0 |                       0 |                 0 |                         0 |                  0
+(1 row)
+
+ valores_negativos | valores_zerados | menor_pagamento | maior_pagamento | valor_total_pagamentos 
+-------------------+-----------------+-----------------+-----------------+------------------------
+                 0 |               9 |            0.00 |        13664.08 |            16008872.12
+(1 row)
+
+ minimo_parcelas | maximo_parcelas |   media_parcelas   
+-----------------+-----------------+--------------------
+               0 |              24 | 2.8533488631769440
+(1 row)
+
+ quantidade_pedidos | valor_pago_total |  ticket_medio_pago   
+--------------------+------------------+----------------------
+              99440 |      16008872.12 | 160.9902666934835076
+(1 row)
+
+ pedidos_com_itens_e_pagamento | diferenca_ate_1_centavo | diferenca_maior_1_centavo | maior_diferenca | total_calculado | total_pago  
+-------------------------------+-------------------------+---------------------------+-----------------+-----------------+-------------
+                         98665 |                   98362 |                       303 |          182.81 |     15843409.78 | 15846280.17
+(1 row)
+
+             order_id             | valor_calculado_pedido | valor_pago_pedido | diferenca 
+----------------------------------+------------------------+-------------------+-----------
+ ce6d150fb29ada17d2082f4847107665 |                1403.66 |           1586.47 |    182.81
+ 6e5fe7366a2e1bfbf3257dba0af1267f |                 287.91 |            406.92 |    119.01
+ 70b742795bc441e94a44a084b6d9ce7a |                 466.93 |            578.82 |    111.89
+ 996c7e73600ad3723e8627ab7bef81e4 |                 587.90 |            664.43 |     76.53
+ 70b7e94ea46d3e8b5bc12a50186edaf0 |                 213.15 |            274.84 |     61.69
+ bc2c82b0ef78d2252b6176d1972db7c9 |                 242.01 |            303.02 |     61.01
+ af9ffff2ce6b3defd34fd4c78857a379 |                 413.17 |            466.97 |     53.80
+ 262118ce178bb3e4590a3adcf6d62e6b |                 177.74 |            126.12 |     51.62
+ bfdb5bbb06458d600a33d61f5f287472 |                 348.93 |            394.36 |     45.43
+ 8d9c0dc8d5a2ce804f6b925d8f8e6c1d |                 254.45 |            293.89 |     39.44
+ b7579d24f5b2dd3e20f2e57d0e07d170 |                 466.28 |            504.37 |     38.09
+ abf1130bc676c9dcadf91e24f5e30a30 |                 459.36 |            496.89 |     37.53
+ b76190a2c095fba255ab46987545a660 |                 227.91 |            263.24 |     35.33
+ 32720c0c8b42f4c2cdb07cee5ec2444b |                 224.75 |            259.59 |     34.84
+ 6b0ac1bdea322c7060eea92feb9e9a6f |                 327.87 |            362.56 |     34.69
+ ee9dfabed586581a184f72e03544b4a2 |                 307.50 |            342.12 |     34.62
+ e8295bee3fcc58cbd94f165f36c11f4b |                 117.85 |            151.93 |     34.08
+ dd7a24d1088cf9ed90329fb0dee088f4 |                 259.31 |            293.07 |     33.76
+ a69aaa894f707814637e9794aa556f0f |                 179.35 |            211.87 |     32.52
+ 513a94a0164453b4777d125b836f7ca1 |                 208.19 |            240.47 |     32.28
+(20 rows)
+
+ pedidos_delivered | valor_calculado | valor_pago  | ticket_medio_calculado |  ticket_medio_pago   
+-------------------+-----------------+-------------+------------------------+----------------------
+             96477 |     15419630.29 | 15422461.77 |   159.8270084061486157 | 159.8563571628471035
+(1 row)
+

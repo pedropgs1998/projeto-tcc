@@ -1,0 +1,36 @@
+   kimball   |  data_mart  | diferenca 
+-------------+-------------+-----------
+ 13221498.11 | 13221498.11 |      0.00
+(1 row)
+
+ kimball_ticket_calculado | mart_ticket_calculado | diferenca_ticket_calculado | kimball_ticket_pago  |   mart_ticket_pago   | diferenca_ticket_pago 
+--------------------------+-----------------------+----------------------------+----------------------+----------------------+-----------------------
+     159.8268387611683493 |  159.8268387611683493 |         0.0000000000000000 | 159.8563571628471035 | 159.8563571628471035 |    0.0000000000000000
+(1 row)
+
+DROP TABLE
+NOTICE:  schema "pg_temp" does not exist, skipping
+SELECT 556
+NOTICE:  table "mart_q3" does not exist, skipping
+DROP TABLE
+SELECT 556
+ kimball_linhas | data_mart_linhas 
+----------------+------------------
+            556 |              556
+(1 row)
+
+ kimball_nao_encontrado_no_mart 
+--------------------------------
+                              0
+(1 row)
+
+ mart_nao_encontrado_no_kimball 
+--------------------------------
+                              0
+(1 row)
+
+ grupos_com_diferenca 
+----------------------
+                    0
+(1 row)
+
