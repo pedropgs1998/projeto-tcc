@@ -77,8 +77,8 @@
  sat_seller         |           1 |           1
  sat_product        |           1 |           1
  sat_order_customer |           1 |           1
- sat_order          |           1 |           1
  sat_order_item     |           1 |           1
+ sat_order          |           1 |           1
 (5 rows)
 
  hashdiffs_inconsistentes 

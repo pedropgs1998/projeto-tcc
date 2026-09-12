@@ -1,19 +1,16 @@
-Banco: PostgreSQL 17
-Execução: Docker
+Estado experimental: T0
+Coletado em: 2026-09-12T16:57:45-03:00
 Container: tcc-postgres
-Database: olist_dw
+Banco: olist_dw
 Usuário: olist_dw
 
-Schemas experimentais:
+Schemas:
 - raw
 - kimball
 - data_vault
 - data_mart
 - control
 
-Ferramentas:
-- PostgreSQL
-- Docker / Docker Compose
-- DBeaver
-- Python
-- Git
+Fluxos:
+- Arquitetura A: RAW -> Kimball
+- Arquitetura B: RAW -> Data Vault -> Data Mart

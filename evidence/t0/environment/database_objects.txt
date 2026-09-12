@@ -1,5 +1,5 @@
- table_schema |     table_name      
---------------+---------------------
+ table_schema |          table_name          
+--------------+------------------------------
  data_mart    | dim_customer
  data_mart    | dim_date
  data_mart    | dim_order_status
@@ -25,5 +25,14 @@
  kimball      | dim_seller
  kimball      | fact_order
  kimball      | fact_order_item
-(25 rows)
+ raw          | customers
+ raw          | geolocation
+ raw          | order_items
+ raw          | order_payments
+ raw          | order_reviews
+ raw          | orders
+ raw          | product_category_translation
+ raw          | products
+ raw          | sellers
+(34 rows)
 

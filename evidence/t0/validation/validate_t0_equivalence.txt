@@ -9,7 +9,9 @@
 (1 row)
 
 DROP TABLE
+NOTICE:  schema "pg_temp" does not exist, skipping
 SELECT 556
+NOTICE:  table "mart_q3" does not exist, skipping
 DROP TABLE
 SELECT 556
  kimball_linhas | data_mart_linhas 
