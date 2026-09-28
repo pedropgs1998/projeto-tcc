@@ -1,0 +1,1049 @@
+
+============================================================
+Reconstrução completa do estado T2
+============================================================
+
+
+[2026-09-27 21:17:36] Reconstruindo estado T1
+
+
+============================================================
+Reconstrução completa do estado T1
+============================================================
+
+
+[2026-09-27 21:17:37] Reconstrução completa do estado T0
+
+[2026-09-27 21:17:37] Aguardando PostgreSQL ficar disponível...
+
+[2026-09-27 21:17:37] Removendo schemas do experimento para reconstrução limpa...
+NOTICE:  drop cascades to 7 other objects
+DETAIL:  drop cascades to table data_mart.dim_date
+drop cascades to table data_mart.dim_customer
+drop cascades to table data_mart.dim_order_status
+drop cascades to table data_mart.dim_product
+drop cascades to table data_mart.dim_seller
+drop cascades to table data_mart.fact_order
+drop cascades to table data_mart.fact_order_item
+DROP SCHEMA
+NOTICE:  drop cascades to 14 other objects
+DETAIL:  drop cascades to function data_vault.normalize_hash_value(text)
+drop cascades to function data_vault.hash_key(text)
+drop cascades to function data_vault.hash_values(text[])
+drop cascades to table data_vault.hub_order
+drop cascades to table data_vault.hub_customer
+drop cascades to table data_vault.hub_product
+drop cascades to table data_vault.hub_seller
+drop cascades to table data_vault.link_order_customer
+drop cascades to table data_vault.link_order_item
+drop cascades to table data_vault.sat_order
+drop cascades to table data_vault.sat_order_customer
+drop cascades to table data_vault.sat_product
+drop cascades to table data_vault.sat_seller
+drop cascades to table data_vault.sat_order_item
+DROP SCHEMA
+NOTICE:  drop cascades to 7 other objects
+DETAIL:  drop cascades to table kimball.dim_date
+drop cascades to table kimball.dim_customer
+drop cascades to table kimball.dim_order_status
+drop cascades to table kimball.dim_product
+drop cascades to table kimball.dim_seller
+drop cascades to table kimball.fact_order
+drop cascades to table kimball.fact_order_item
+DROP SCHEMA
+DROP SCHEMA
+NOTICE:  drop cascades to 9 other objects
+DETAIL:  drop cascades to table raw.customers
+drop cascades to table raw.geolocation
+drop cascades to table raw.order_items
+drop cascades to table raw.order_payments
+drop cascades to table raw.order_reviews
+drop cascades to table raw.orders
+drop cascades to table raw.products
+drop cascades to table raw.sellers
+drop cascades to table raw.product_category_translation
+DROP SCHEMA
+
+[2026-09-27 21:17:38] Criando e carregando camada RAW...
+
+[2026-09-27 21:17:38] Executando sql/00_create_schemas.sql
+CREATE SCHEMA
+CREATE SCHEMA
+CREATE SCHEMA
+CREATE SCHEMA
+CREATE SCHEMA
+
+[2026-09-27 21:17:38] Executando sql/01_create_raw_tables.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:17:38] Executando sql/02_load_raw_data.sql
+COPY 99441
+COPY 1000163
+COPY 112650
+COPY 103886
+COPY 99224
+COPY 99441
+COPY 32951
+COPY 3095
+COPY 71
+
+[2026-09-27 21:17:49] Construindo Kimball T0...
+
+[2026-09-27 21:17:49] Executando sql/kimball/00_create_schema.sql
+CREATE SCHEMA
+NOTICE:  schema "kimball" already exists, skipping
+
+[2026-09-27 21:17:49] Executando sql/kimball/01_create_dimensions.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:17:49] Executando sql/kimball/02_create_facts.sql
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:17:50] Executando sql/kimball/03_load_dimensions.sql
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 800
+INSERT 0 99441
+INSERT 0 8
+INSERT 0 32951
+INSERT 0 3095
+
+[2026-09-27 21:17:55] Executando sql/kimball/04_load_facts.sql
+INSERT 0 99441
+INSERT 0 112650
+
+[2026-09-27 21:18:17] Construindo Data Vault T0...
+
+[2026-09-27 21:18:17] Executando sql/data_vault/00_create_schema.sql
+NOTICE:  schema "data_vault" already exists, skipping
+CREATE SCHEMA
+
+[2026-09-27 21:18:18] Executando sql/data_vault/01_create_hash_functions.sql
+NOTICE:  extension "pgcrypto" already exists, skipping
+CREATE EXTENSION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+                              hash_1                              |                              hash_2                              | normalizacao_consistente 
+------------------------------------------------------------------+------------------------------------------------------------------+--------------------------
+ e0bebd22819993425814866b62701e2919ea26f1370499c1037b53b9d49c2c8a | e0bebd22819993425814866b62701e2919ea26f1370499c1037b53b9d49c2c8a | t
+(1 row)
+
+                           hash_null_1                            |                           hash_null_2                            | null_consistente 
+------------------------------------------------------------------+------------------------------------------------------------------+------------------
+ dd9c8445e43d2717ad906b284ae560a4e9e16eb87f64ce27d0fdf3446e64ef44 | dd9c8445e43d2717ad906b284ae560a4e9e16eb87f64ce27d0fdf3446e64ef44 | t
+(1 row)
+
+                         hash_composto_1                          |                         hash_composto_2                          | hash_composto_consistente 
+------------------------------------------------------------------+------------------------------------------------------------------+---------------------------
+ 1bb2d1c94a948e209abc00811ebdfb348bae23b0a5d1d6dbc34a19c7fb19eee5 | 1bb2d1c94a948e209abc00811ebdfb348bae23b0a5d1d6dbc34a19c7fb19eee5 | t
+(1 row)
+
+                             hash_ab                              |                             hash_ba                              | ordem_componentes_preservada 
+------------------------------------------------------------------+------------------------------------------------------------------+------------------------------
+ bffecd9532fb296c45cb9a58cfb35bf97dd1a753bcbd879978415e2c84e357ff | 276820afe96036f332ccc99159caf3069da3ad256ff131836d5caf4b9ddb9824 | t
+(1 row)
+
+
+[2026-09-27 21:18:18] Executando sql/data_vault/02_create_hubs.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:18:18] Executando sql/data_vault/03_create_links.sql
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:18:19] Executando sql/data_vault/04_create_satellites.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:18:19] Executando sql/data_vault/05_load_hubs.sql
+INSERT 0 99441
+INSERT 0 96096
+INSERT 0 32951
+INSERT 0 3095
+    tabela    | quantidade 
+--------------+------------
+ hub_seller   |       3095
+ hub_product  |      32951
+ hub_customer |      96096
+ hub_order    |      99441
+(4 rows)
+
+    tabela    | total_linhas | business_keys_distintas 
+--------------+--------------+-------------------------
+ hub_seller   |         3095 |                    3095
+ hub_product  |        32951 |                   32951
+ hub_customer |        96096 |                   96096
+ hub_order    |        99441 |                   99441
+(4 rows)
+
+    tabela    | hashes_inconsistentes 
+--------------+-----------------------
+ hub_order    |                     0
+ hub_customer |                     0
+ hub_product  |                     0
+ hub_seller   |                     0
+(4 rows)
+
+
+[2026-09-27 21:18:30] Executando sql/data_vault/06_load_links.sql
+INSERT 0 99441
+INSERT 0 112650
+       tabela        | quantidade 
+---------------------+------------
+ link_order_customer |      99441
+ link_order_item     |     112650
+(2 rows)
+
+ total_linhas | pedidos_distintos | relacionamentos_adicionais 
+--------------+-------------------+----------------------------
+        99441 |             99441 |                          0
+(1 row)
+
+ pedidos_com_multiplos_clientes 
+--------------------------------
+                              0
+(1 row)
+
+ total_linhas | graos_distintos | duplicidades 
+--------------+-----------------+--------------
+       112650 |          112650 |            0
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ hashes_inconsistentes 
+-----------------------
+                     0
+(1 row)
+
+ hashes_inconsistentes 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_raw_sem_link_customer 
+-------------------------------
+                             0
+(1 row)
+
+ itens_raw_sem_link 
+--------------------
+                  0
+(1 row)
+
+
+[2026-09-27 21:19:00] Executando sql/data_vault/07_load_satellites.sql
+INSERT 0 99441
+INSERT 0 99441
+INSERT 0 32951
+INSERT 0 3095
+INSERT 0 112650
+       tabela       | quantidade 
+--------------------+------------
+ sat_seller         |       3095
+ sat_product        |      32951
+ sat_order          |      99441
+ sat_order_item     |     112650
+ sat_order_customer |      99441
+(5 rows)
+
+       tabela       | min_versoes | max_versoes 
+--------------------+-------------+-------------
+ sat_seller         |           1 |           1
+ sat_product        |           1 |           1
+ sat_order          |           1 |           1
+ sat_order_item     |           1 |           1
+ sat_order_customer |           1 |           1
+(5 rows)
+
+  raw_price  | vault_price | diferenca 
+-------------+-------------+-----------
+ 13591643.70 | 13591643.70 |      0.00
+(1 row)
+
+ raw_freight | vault_freight | diferenca 
+-------------+---------------+-----------
+  2251909.54 |    2251909.54 |      0.00
+(1 row)
+
+ customer_ids_preservados 
+--------------------------
+                    99441
+(1 row)
+
+ produtos_categoria_null 
+-------------------------
+                     610
+(1 row)
+
+
+[2026-09-27 21:19:20] Construindo Data Mart T0...
+
+[2026-09-27 21:19:20] Executando sql/data_mart/00_create_schema.sql
+NOTICE:  schema "data_mart" already exists, skipping
+CREATE SCHEMA
+
+[2026-09-27 21:19:24] Executando sql/data_mart/01_create_dimensions.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:19:24] Executando sql/data_mart/02_create_facts.sql
+CREATE TABLE
+CREATE TABLE
+
+[2026-09-27 21:19:25] Executando sql/data_mart/03_load_dimensions.sql
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 800
+INSERT 0 99441
+INSERT 0 8
+INSERT 0 32951
+INSERT 0 3095
+      tabela      | quantidade 
+------------------+------------
+ dim_date         |        801
+ dim_customer     |      99442
+ dim_order_status |          9
+ dim_product      |      32952
+ dim_seller       |       3096
+(5 rows)
+
+ total_linhas | customer_ids_distintos | duplicidades 
+--------------+------------------------+--------------
+        99441 |                  99441 |            0
+(1 row)
+
+ customer_unique_ids_distintos 
+-------------------------------
+                         96096
+(1 row)
+
+ produtos_categoria_null 
+-------------------------
+                     610
+(1 row)
+
+      tabela      | quantidade 
+------------------+------------
+ dim_date         |          1
+ dim_customer     |          1
+ dim_order_status |          1
+ dim_product      |          1
+ dim_seller       |          1
+(5 rows)
+
+
+[2026-09-27 21:19:29] Executando sql/data_mart/04_load_facts.sql
+SET
+SET
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+ANALYZE
+INSERT 0 99441
+INSERT 0 112650
+     tabela      | quantidade 
+-----------------+------------
+ fact_order_item |     112650
+ fact_order      |      99441
+(2 rows)
+
+ customer_desconhecido | status_desconhecido | purchase_date_desconhecida | delivered_date_desconhecida | estimated_date_desconhecida 
+-----------------------+---------------------+----------------------------+-----------------------------+-----------------------------
+                     0 |                   0 |                          0 |                        2965 |                           0
+(1 row)
+
+ customer_desconhecido | status_desconhecido | purchase_date_desconhecida | product_desconhecido | seller_desconhecido 
+-----------------------+---------------------+----------------------------+----------------------+---------------------
+                     0 |                   0 |                          0 |                    0 |                   0
+(1 row)
+
+ pedidos_sem_itens 
+-------------------
+               775
+(1 row)
+
+ total_price | total_freight |    total    
+-------------+---------------+-------------
+ 13591643.70 |    2251909.54 | 15843553.24
+(1 row)
+
+
+[2026-09-27 21:20:01] T0 reconstruído com sucesso.
+
+[2026-09-27 21:20:01] Próximo passo recomendado: ./scripts/validate_t0.sh
+
+============================================================
+Baseline T0 reconstruído
+Aplicando M1 para alcançar T1
+============================================================
+
+
+[2026-09-27 21:20:01] Aplicando T1 / M1 - fonte de pagamentos
+
+[2026-09-27 21:20:01] Aguardando PostgreSQL ficar disponível...
+
+[2026-09-27 21:20:02] 1/6 - Profiling da fonte de pagamentos
+
+[2026-09-27 21:20:02] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/00_profile_m1.sql
+ total_linhas | pedidos_distintos 
+--------------+-------------------
+       103886 |             99440
+(1 row)
+
+ total_linhas | duplicidades_grao 
+--------------+-------------------
+       103886 |                 0
+(1 row)
+
+ order_id | payment_sequential | quantidade 
+----------+--------------------+------------
+(0 rows)
+
+ pagamentos_sem_pedido 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_sem_pagamento 
+-----------------------
+                     1
+(1 row)
+
+             order_id             | order_status 
+----------------------------------+--------------
+ bfbd0f9bdef84302105ad712db648a6c | delivered
+(1 row)
+
+ minimo_pagamentos | maximo_pagamentos |  media_pagamentos  
+-------------------+-------------------+--------------------
+                 1 |                29 | 1.0447103781174578
+(1 row)
+
+ quantidade_pagamentos | quantidade_pedidos 
+-----------------------+--------------------
+                     1 |              96479
+                     2 |               2382
+                     3 |                301
+                     4 |                108
+                     5 |                 52
+                     6 |                 36
+                     7 |                 28
+                     8 |                 11
+                     9 |                  9
+                    10 |                  5
+                    11 |                  8
+                    12 |                  8
+                    13 |                  3
+                    14 |                  2
+                    15 |                  2
+                    19 |                  2
+                    21 |                  1
+                    22 |                  1
+                    26 |                  1
+                    29 |                  1
+(20 rows)
+
+ pedidos_com_multiplos_pagamentos 
+----------------------------------
+                             2961
+(1 row)
+
+ payment_type | quantidade_registros | quantidade_pedidos | valor_pago  
+--------------+----------------------+--------------------+-------------
+ credit_card  |                76795 |              76505 | 12542084.19
+ boleto       |                19784 |              19784 |  2869361.27
+ voucher      |                 5775 |               3866 |   379436.87
+ debit_card   |                 1529 |               1528 |   217989.79
+ not_defined  |                    3 |                  3 |        0.00
+(5 rows)
+
+ pedidos_com_multiplos_tipos_pagamento 
+---------------------------------------
+                                  2246
+(1 row)
+
+ order_id_null | payment_sequential_null | payment_type_null | payment_installments_null | payment_value_null 
+---------------+-------------------------+-------------------+---------------------------+--------------------
+             0 |                       0 |                 0 |                         0 |                  0
+(1 row)
+
+ valores_negativos | valores_zerados | menor_pagamento | maior_pagamento | valor_total_pagamentos 
+-------------------+-----------------+-----------------+-----------------+------------------------
+                 0 |               9 |            0.00 |        13664.08 |            16008872.12
+(1 row)
+
+ minimo_parcelas | maximo_parcelas |   media_parcelas   
+-----------------+-----------------+--------------------
+               0 |              24 | 2.8533488631769440
+(1 row)
+
+ quantidade_pedidos | valor_pago_total |  ticket_medio_pago   
+--------------------+------------------+----------------------
+              99440 |      16008872.12 | 160.9902666934835076
+(1 row)
+
+ pedidos_com_itens_e_pagamento | diferenca_ate_1_centavo | diferenca_maior_1_centavo | maior_diferenca | total_calculado | total_pago  
+-------------------------------+-------------------------+---------------------------+-----------------+-----------------+-------------
+                         98665 |                   98362 |                       303 |          182.81 |     15843409.78 | 15846280.17
+(1 row)
+
+             order_id             | valor_calculado_pedido | valor_pago_pedido | diferenca 
+----------------------------------+------------------------+-------------------+-----------
+ ce6d150fb29ada17d2082f4847107665 |                1403.66 |           1586.47 |    182.81
+ 6e5fe7366a2e1bfbf3257dba0af1267f |                 287.91 |            406.92 |    119.01
+ 70b742795bc441e94a44a084b6d9ce7a |                 466.93 |            578.82 |    111.89
+ 996c7e73600ad3723e8627ab7bef81e4 |                 587.90 |            664.43 |     76.53
+ 70b7e94ea46d3e8b5bc12a50186edaf0 |                 213.15 |            274.84 |     61.69
+ bc2c82b0ef78d2252b6176d1972db7c9 |                 242.01 |            303.02 |     61.01
+ af9ffff2ce6b3defd34fd4c78857a379 |                 413.17 |            466.97 |     53.80
+ 262118ce178bb3e4590a3adcf6d62e6b |                 177.74 |            126.12 |     51.62
+ bfdb5bbb06458d600a33d61f5f287472 |                 348.93 |            394.36 |     45.43
+ 8d9c0dc8d5a2ce804f6b925d8f8e6c1d |                 254.45 |            293.89 |     39.44
+ b7579d24f5b2dd3e20f2e57d0e07d170 |                 466.28 |            504.37 |     38.09
+ abf1130bc676c9dcadf91e24f5e30a30 |                 459.36 |            496.89 |     37.53
+ b76190a2c095fba255ab46987545a660 |                 227.91 |            263.24 |     35.33
+ 32720c0c8b42f4c2cdb07cee5ec2444b |                 224.75 |            259.59 |     34.84
+ 6b0ac1bdea322c7060eea92feb9e9a6f |                 327.87 |            362.56 |     34.69
+ ee9dfabed586581a184f72e03544b4a2 |                 307.50 |            342.12 |     34.62
+ e8295bee3fcc58cbd94f165f36c11f4b |                 117.85 |            151.93 |     34.08
+ dd7a24d1088cf9ed90329fb0dee088f4 |                 259.31 |            293.07 |     33.76
+ a69aaa894f707814637e9794aa556f0f |                 179.35 |            211.87 |     32.52
+ 513a94a0164453b4777d125b836f7ca1 |                 208.19 |            240.47 |     32.28
+(20 rows)
+
+ pedidos_delivered | valor_calculado | valor_pago  | ticket_medio_calculado |  ticket_medio_pago   
+-------------------+-----------------+-------------+------------------------+----------------------
+             96477 |     15419630.29 | 15422461.77 |   159.8270084061486157 | 159.8563571628471035
+(1 row)
+
+
+[2026-09-27 21:20:08] 2/6 - Kimball T1 - criação da fact_payment
+
+[2026-09-27 21:20:08] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/kimball/00_create_fact_payment.sql
+NOTICE:  table "fact_payment" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+
+[2026-09-27 21:20:09] 3/6 - Kimball T1 - carga da fact_payment
+
+[2026-09-27 21:20:09] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/kimball/01_load_fact_payment.sql
+TRUNCATE TABLE
+INSERT 0 103886
+
+[2026-09-27 21:20:18] 4/6 - Data Vault T1 - criação do SAT_ORDER_PAYMENT
+
+[2026-09-27 21:20:18] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/data_vault/00_create_sat_order_payment.sql
+NOTICE:  table "sat_order_payment" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+
+[2026-09-27 21:20:19] 5/6 - Data Vault T1 - carga do SAT_ORDER_PAYMENT
+
+[2026-09-27 21:20:19] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/data_vault/01_load_sat_order_payment.sql
+INSERT 0 103886
+
+[2026-09-27 21:20:27] 6/6 - Data Mart T1 - criação e carga da fact_payment
+
+[2026-09-27 21:20:27] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/data_mart/00_create_fact_payment.sql
+NOTICE:  table "fact_payment" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+
+[2026-09-27 21:20:27] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/data_mart/01_load_fact_payment.sql
+TRUNCATE TABLE
+INSERT 0 103886
+
+[2026-09-27 21:20:42] T1 / M1 aplicado com sucesso
+
+Próximo passo recomendado:
+./scripts/validate_t1.sh
+
+============================================================
+Executando validações T1
+============================================================
+
+
+[2026-09-27 21:20:42] Aguardando PostgreSQL ficar disponível...
+
+[2026-09-27 21:20:42] Validando Kimball T1
+
+[2026-09-27 21:20:42] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/kimball/02_validate_t1.sql
+ fact_payment 
+--------------
+       103886
+(1 row)
+
+ total_linhas | duplicidades 
+--------------+--------------
+       103886 |            0
+(1 row)
+
+ raw_payments | kimball_payments 
+--------------+------------------
+       103886 |           103886
+(1 row)
+
+  raw_total  | kimball_total | diferenca 
+-------------+---------------+-----------
+ 16008872.12 |   16008872.12 |      0.00
+(1 row)
+
+ customer_sk_zero | order_status_sk_zero | purchase_date_sk_zero 
+------------------+----------------------+-----------------------
+                0 |                    0 |                     0
+(1 row)
+
+ payment_type | quantidade | valor_pago  
+--------------+------------+-------------
+ boleto       |      19784 |  2869361.27
+ credit_card  |      76795 | 12542084.19
+ debit_card   |       1529 |   217989.79
+ not_defined  |          3 |        0.00
+ voucher      |       5775 |   379436.87
+(5 rows)
+
+ pagamentos_sem_order 
+----------------------
+                    0
+(1 row)
+
+ pedidos_com_pagamento | valor_pago_total |  ticket_medio_pago   
+-----------------------+------------------+----------------------
+                 99440 |      16008872.12 | 160.9902666934835076
+(1 row)
+
+
+[2026-09-27 21:20:44] Validando Data Vault T1
+
+[2026-09-27 21:20:44] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/data_vault/02_validate_t1.sql
+ sat_order_payment 
+-------------------
+            103886
+(1 row)
+
+ total_linhas | graos_distintos | versoes_adicionais 
+--------------+-----------------+--------------------
+       103886 |          103886 |                  0
+(1 row)
+
+ min_versoes | max_versoes 
+-------------+-------------
+           1 |           1
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ raw_payments | vault_payments 
+--------------+----------------
+       103886 |         103886
+(1 row)
+
+ raw_orders | vault_orders 
+------------+--------------
+      99440 |        99440
+(1 row)
+
+  raw_total  | vault_total | diferenca 
+-------------+-------------+-----------
+ 16008872.12 | 16008872.12 |      0.00
+(1 row)
+
+ pagamentos_com_payload_diferente 
+----------------------------------
+                                0
+(1 row)
+
+ pagamentos_raw_sem_satellite 
+------------------------------
+                            0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ payment_type | quantidade | valor_pago  
+--------------+------------+-------------
+ boleto       |      19784 |  2869361.27
+ credit_card  |      76795 | 12542084.19
+ debit_card   |       1529 |   217989.79
+ not_defined  |          3 |        0.00
+ voucher      |       5775 |   379436.87
+(5 rows)
+
+ minimo_pagamentos | maximo_pagamentos |  media_pagamentos  
+-------------------+-------------------+--------------------
+                 1 |                29 | 1.0447103781174578
+(1 row)
+
+ sat_order_payment | pedidos_com_pagamento | valor_pago_total 
+-------------------+-----------------------+------------------
+            103886 |                 99440 |      16008872.12
+(1 row)
+
+
+[2026-09-27 21:20:49] Validando Data Mart T1
+
+[2026-09-27 21:20:49] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/data_mart/02_validate_t1.sql
+ fact_payment 
+--------------
+       103886
+(1 row)
+
+ total_linhas | duplicidades 
+--------------+--------------
+       103886 |            0
+(1 row)
+
+ vault_payments | mart_payments 
+----------------+---------------
+         103886 |        103886
+(1 row)
+
+ vault_total | mart_total  | diferenca 
+-------------+-------------+-----------
+ 16008872.12 | 16008872.12 |      0.00
+(1 row)
+
+ customer_sk_zero | order_status_sk_zero | purchase_date_sk_zero 
+------------------+----------------------+-----------------------
+                0 |                    0 |                     0
+(1 row)
+
+ payment_type | quantidade | valor_pago  
+--------------+------------+-------------
+ boleto       |      19784 |  2869361.27
+ credit_card  |      76795 | 12542084.19
+ debit_card   |       1529 |   217989.79
+ not_defined  |          3 |        0.00
+ voucher      |       5775 |   379436.87
+(5 rows)
+
+ pedidos_com_pagamento 
+-----------------------
+                 99440
+(1 row)
+
+ pedidos_com_pagamento | valor_pago_total |  ticket_medio_pago   
+-----------------------+------------------+----------------------
+                 99440 |      16008872.12 | 160.9902666934835076
+(1 row)
+
+ raw_linhas | mart_linhas |  raw_total  | mart_total  
+------------+-------------+-------------+-------------
+     103886 |      103886 | 16008872.12 | 16008872.12
+(1 row)
+
+
+[2026-09-27 21:20:51] Validando equivalência Kimball x Data Mart
+
+[2026-09-27 21:20:51] Executando /mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/sql/t1_m1/validation/00_validate_t1_equivalence.sql
+   kimball   |  data_mart  | diferenca 
+-------------+-------------+-----------
+ 13221498.11 | 13221498.11 |      0.00
+(1 row)
+
+ kimball_ticket_calculado | mart_ticket_calculado | diferenca_ticket_calculado | kimball_ticket_pago  |   mart_ticket_pago   | diferenca_ticket_pago 
+--------------------------+-----------------------+----------------------------+----------------------+----------------------+-----------------------
+     159.8268387611683493 |  159.8268387611683493 |         0.0000000000000000 | 159.8563571628471035 | 159.8563571628471035 |    0.0000000000000000
+(1 row)
+
+DROP TABLE
+NOTICE:  schema "pg_temp" does not exist, skipping
+SELECT 556
+NOTICE:  table "mart_q3" does not exist, skipping
+DROP TABLE
+SELECT 556
+ kimball_linhas | data_mart_linhas 
+----------------+------------------
+            556 |              556
+(1 row)
+
+ kimball_nao_encontrado_no_mart 
+--------------------------------
+                              0
+(1 row)
+
+ mart_nao_encontrado_no_kimball 
+--------------------------------
+                              0
+(1 row)
+
+ grupos_com_diferenca 
+----------------------
+                    0
+(1 row)
+
+
+[2026-09-27 21:20:57] Validação T1 concluída
+
+============================================================
+Estado T1 reconstruído e validado com sucesso
+============================================================
+
+[2026-09-27 21:20:57] Aplicando M2 no modelo Kimball
+
+
+[2026-09-27 21:20:57] Executando sql/t2_m2/kimball/00_alter_fact_order.sql
+
+ALTER TABLE
+
+[2026-09-27 21:20:57] Executando sql/t2_m2/kimball/01_load_temporal_attributes.sql
+
+UPDATE 99441
+
+[2026-09-27 21:20:59] Aplicando M2 no Data Vault
+
+
+[2026-09-27 21:20:59] Executando sql/t2_m2/data_vault/00_alter_sat_order.sql
+
+ALTER TABLE
+
+[2026-09-27 21:21:00] Executando sql/t2_m2/data_vault/01_load_temporal_attributes.sql
+
+UPDATE 99441
+
+[2026-09-27 21:21:10] Aplicando M2 no Data Mart
+
+
+[2026-09-27 21:21:10] Executando sql/t2_m2/data_mart/00_alter_fact_order.sql
+
+ALTER TABLE
+
+[2026-09-27 21:21:10] Executando sql/t2_m2/data_mart/01_load_temporal_attributes.sql
+
+UPDATE 99441
+
+[2026-09-27 21:21:12] Validando Kimball T2
+
+
+[2026-09-27 21:21:12] Executando sql/t2_m2/kimball/02_validate_t2.sql
+
+ fact_order 
+------------
+      99441
+(1 row)
+
+ approved_null | carrier_null 
+---------------+--------------
+           160 |         1783
+(1 row)
+
+ raw_approved_null | raw_carrier_null 
+-------------------+------------------
+               160 |             1783
+(1 row)
+
+ registros_divergentes 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_raw_sem_fact_order 
+----------------------------
+                          0
+(1 row)
+
+
+[2026-09-27 21:21:13] Validando Data Vault T2
+
+
+[2026-09-27 21:21:13] Executando sql/t2_m2/data_vault/02_validate_t2.sql
+
+ sat_order 
+-----------
+     99441
+(1 row)
+
+ total_linhas | orders_distintos 
+--------------+------------------
+        99441 |            99441
+(1 row)
+
+ approved_null | carrier_null 
+---------------+--------------
+           160 |         1783
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ registros_divergentes 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_raw_sem_sat_order 
+---------------------------
+                         0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ validos_tempo_aprovacao | validos_tempo_preparacao | validos_tempo_transporte 
+-------------------------+--------------------------+--------------------------
+                   96464 |                    95112 |                    96446
+(1 row)
+
+
+[2026-09-27 21:21:16] Validando Data Mart T2
+
+
+[2026-09-27 21:21:16] Executando sql/t2_m2/data_mart/02_validate_t2.sql
+
+ fact_order 
+------------
+      99441
+(1 row)
+
+ approved_null | carrier_null 
+---------------+--------------
+           160 |         1783
+(1 row)
+
+ registros_divergentes_vault 
+-----------------------------
+                           0
+(1 row)
+
+ registros_divergentes_kimball 
+-------------------------------
+                             0
+(1 row)
+
+ pedidos_vault_sem_fact_order 
+------------------------------
+                            0
+(1 row)
+
+ validos_tempo_aprovacao | validos_tempo_preparacao | validos_tempo_transporte 
+-------------------------+--------------------------+--------------------------
+                   96464 |                    95112 |                    96446
+(1 row)
+
+
+[2026-09-27 21:21:17] Validando equivalência Kimball x Data Mart em T2
+
+
+[2026-09-27 21:21:17] Executando sql/t2_m2/validation/00_validate_t2_equivalence.sql
+
+   kimball   |  data_mart  | diferenca 
+-------------+-------------+-----------
+ 13221498.11 | 13221498.11 |      0.00
+(1 row)
+
+ kimball_ticket_calculado | mart_ticket_calculado | diferenca_ticket_calculado | kimball_ticket_pago  |   mart_ticket_pago   | diferenca_ticket_pago 
+--------------------------+-----------------------+----------------------------+----------------------+----------------------+-----------------------
+     159.8268387611683493 |  159.8268387611683493 |         0.0000000000000000 | 159.8563571628471035 | 159.8563571628471035 |    0.0000000000000000
+(1 row)
+
+DROP TABLE
+DROP TABLE
+NOTICE:  schema "pg_temp" does not exist, skipping
+NOTICE:  schema "pg_temp" does not exist, skipping
+SELECT 556
+SELECT 556
+ kimball_linhas | data_mart_linhas 
+----------------+------------------
+            556 |              556
+(1 row)
+
+ kimball_nao_encontrado_no_mart 
+--------------------------------
+                              0
+(1 row)
+
+ mart_nao_encontrado_no_kimball 
+--------------------------------
+                              0
+(1 row)
+
+ grupos_com_diferenca_metricas_temporais 
+-----------------------------------------
+                                       0
+(1 row)
+
+ grupos_com_diferenca 
+----------------------
+                    0
+(1 row)
+
+
+[2026-09-27 21:21:22] Reconstrução e validação de T2 concluídas
+
+
+============================================================
+Estado T2 reconstruído e validado com sucesso
+============================================================
+
+Log completo:
+/mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/evidence/t2/logs/rebuild_t2.log

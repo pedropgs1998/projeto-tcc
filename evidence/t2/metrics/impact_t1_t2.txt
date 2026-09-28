@@ -1,0 +1,45 @@
+ table_schema | quantidade_tabelas | quantidade_colunas | quantidade_pk | quantidade_fk 
+--------------+--------------------+--------------------+---------------+---------------
+ kimball      |                  8 |                 64 |             8 |            13
+ data_vault   |                 12 |                 72 |            12 |            11
+ data_mart    |                  8 |                 64 |             8 |            13
+(3 rows)
+
+ table_schema | tabelas_t1 | tabelas_t2 | delta_tabelas | colunas_t1 | colunas_t2 | delta_colunas | pk_t1 | pk_t2 | delta_pk | fk_t1 | fk_t2 | delta_fk 
+--------------+------------+------------+---------------+------------+------------+---------------+-------+-------+----------+-------+-------+----------
+ kimball      |          8 |          8 |             0 |         62 |         64 |             2 |     8 |     8 |        0 |    13 |    13 |        0
+ data_vault   |         12 |         12 |             0 |         70 |         72 |             2 |    12 |    12 |        0 |    11 |    11 |        0
+ data_mart    |          8 |          8 |             0 |         62 |         64 |             2 |     8 |     8 |        0 |    13 |    13 |        0
+(3 rows)
+
+ table_schema | table_name |         column_name          |          data_type          
+--------------+------------+------------------------------+-----------------------------
+ kimball      | fact_order | order_approved_at            | timestamp without time zone
+ kimball      | fact_order | order_delivered_carrier_date | timestamp without time zone
+ data_vault   | sat_order  | order_approved_at            | timestamp without time zone
+ data_vault   | sat_order  | order_delivered_carrier_date | timestamp without time zone
+ data_mart    | fact_order | order_approved_at            | timestamp without time zone
+ data_mart    | fact_order | order_delivered_carrier_date | timestamp without time zone
+(6 rows)
+
+   camada   |   objeto   | tipo_alteracao | colunas_adicionadas |                                             observacao                                              
+------------+------------+----------------+---------------------+-----------------------------------------------------------------------------------------------------
+ kimball    | fact_order | ALTERACAO      |                   2 | Inclusao de order_approved_at e order_delivered_carrier_date; carga alterada
+ data_vault | sat_order  | ALTERACAO      |                   2 | Inclusao de order_approved_at e order_delivered_carrier_date; carga e logica de hashdiff alteradas
+ data_mart  | fact_order | ALTERACAO      |                   2 | Inclusao de order_approved_at e order_delivered_carrier_date; carga a partir do Data Vault alterada
+(3 rows)
+
+ consulta |   impacto    |                                     descricao                                      
+----------+--------------+------------------------------------------------------------------------------------
+ Q1       | NAO ALTERADA | Valor bruto de itens vendidos preservado
+ Q2       | NAO ALTERADA | Ticket medio calculado e ticket medio pago preservados
+ Q3       | ALTERADA     | Inclusao de media_horas_aprovacao, media_horas_preparacao e media_horas_transporte
+(3 rows)
+
+   camada   | tabelas_adicionadas | tabelas_alteradas | colunas_adicionadas | pk_adicionadas | fk_adicionadas | rotinas_carga_alteradas | consultas_analiticas_alteradas | logicas_hashdiff_alteradas 
+------------+---------------------+-------------------+---------------------+----------------+----------------+-------------------------+--------------------------------+----------------------------
+ kimball    |                   0 |                 1 |                   2 |              0 |              0 |                       1 |                              1 |                          0
+ data_vault |                   0 |                 1 |                   2 |              0 |              0 |                       1 |                              0 |                          1
+ data_mart  |                   0 |                 1 |                   2 |              0 |              0 |                       1 |                              1 |                          0
+(3 rows)
+

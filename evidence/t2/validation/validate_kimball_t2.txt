@@ -1,0 +1,25 @@
+ fact_order 
+------------
+      99441
+(1 row)
+
+ approved_null | carrier_null 
+---------------+--------------
+           160 |         1783
+(1 row)
+
+ raw_approved_null | raw_carrier_null 
+-------------------+------------------
+               160 |             1783
+(1 row)
+
+ registros_divergentes 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_raw_sem_fact_order 
+----------------------------
+                          0
+(1 row)
+

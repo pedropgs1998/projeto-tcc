@@ -1,0 +1,74 @@
+
+[2026-09-27 21:23:20] Coletando evidências do estado T2
+
+
+[2026-09-27 21:23:20] Profiling M2
+
+
+[2026-09-27 21:23:20] Executando sql/t2_m2/00_profile_m2.sql -> evidence/t2/profile/profile_m2.txt
+
+
+[2026-09-27 21:23:21] Queries Kimball T2
+
+
+[2026-09-27 21:23:21] Executando sql/t2_m2/kimball/03_queries_t2.sql -> evidence/t2/queries/queries_kimball_t2.txt
+
+
+[2026-09-27 21:23:24] Queries Data Mart T2
+
+
+[2026-09-27 21:23:24] Executando sql/t2_m2/data_mart/03_queries_t2.sql -> evidence/t2/queries/queries_data_mart_t2.txt
+
+
+[2026-09-27 21:23:26] Validação Kimball T2
+
+
+[2026-09-27 21:23:26] Executando sql/t2_m2/kimball/02_validate_t2.sql -> evidence/t2/validation/validate_kimball_t2.txt
+
+
+[2026-09-27 21:23:26] Validação Data Vault T2
+
+
+[2026-09-27 21:23:26] Executando sql/t2_m2/data_vault/02_validate_t2.sql -> evidence/t2/validation/validate_data_vault_t2.txt
+
+
+[2026-09-27 21:23:29] Validação Data Mart T2
+
+
+[2026-09-27 21:23:29] Executando sql/t2_m2/data_mart/02_validate_t2.sql -> evidence/t2/validation/validate_data_mart_t2.txt
+
+
+[2026-09-27 21:23:29] Equivalência analítica T2
+
+
+[2026-09-27 21:23:29] Executando sql/t2_m2/validation/00_validate_t2_equivalence.sql -> evidence/t2/validation/validate_t2_equivalence.txt
+
+NOTICE:  schema "pg_temp" does not exist, skipping
+NOTICE:  schema "pg_temp" does not exist, skipping
+
+[2026-09-27 21:23:32] Métricas estruturais T1 -> T2
+
+
+[2026-09-27 21:23:32] Executando sql/t2_m2/metrics/00_impact_t1_t2.sql -> evidence/t2/metrics/impact_t1_t2.txt
+
+
+[2026-09-27 21:23:33] Snapshot dos objetos do banco
+
+
+[2026-09-27 21:23:33] Versão PostgreSQL
+
+
+[2026-09-27 21:23:33] Versões Docker
+
+
+[2026-09-27 21:23:34] Estado Git utilizado na coleta
+
+
+[2026-09-27 21:23:35] Coleta de evidências T2 concluída
+
+
+Diretório:
+/mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/evidence/t2
+
+Log da coleta:
+/mnt/c/Users/pedro-silva/Documents/Unicamp/TCC/projeto-tcc/evidence/t2/logs/collect_t2_evidence.log

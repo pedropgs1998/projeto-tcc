@@ -15,6 +15,45 @@
 
 
 /* ============================================================
+ * PREPARAÇÃO DO OTIMIZADOR
+ * ============================================================
+ *
+ * A carga das fatos utiliza múltiplos joins entre objetos do
+ * Raw Vault e dimensões recém-carregadas do Data Mart.
+ *
+ * As estatísticas são atualizadas explicitamente antes da carga
+ * para evitar que o PostgreSQL escolha planos inadequados logo
+ * após uma reconstrução completa do ambiente.
+ *
+ * Os parâmetros abaixo valem apenas para a sessão que executa
+ * este arquivo e não alteram permanentemente a configuração do
+ * PostgreSQL.
+ * ============================================================
+ */
+
+SET work_mem = '128MB';
+SET random_page_cost = 1.1;
+
+ANALYZE data_vault.hub_order;
+ANALYZE data_vault.hub_customer;
+ANALYZE data_vault.hub_product;
+ANALYZE data_vault.hub_seller;
+ANALYZE data_vault.link_order_customer;
+ANALYZE data_vault.link_order_item;
+ANALYZE data_vault.sat_order;
+ANALYZE data_vault.sat_order_customer;
+ANALYZE data_vault.sat_order_item;
+ANALYZE data_vault.sat_product;
+ANALYZE data_vault.sat_seller;
+
+ANALYZE data_mart.dim_date;
+ANALYZE data_mart.dim_customer;
+ANALYZE data_mart.dim_order_status;
+ANALYZE data_mart.dim_product;
+ANALYZE data_mart.dim_seller;
+
+
+/* ============================================================
  * 1. FACT_ORDER
  * ============================================================
  *

@@ -1,0 +1,30 @@
+ fact_order 
+------------
+      99441
+(1 row)
+
+ approved_null | carrier_null 
+---------------+--------------
+           160 |         1783
+(1 row)
+
+ registros_divergentes_vault 
+-----------------------------
+                           0
+(1 row)
+
+ registros_divergentes_kimball 
+-------------------------------
+                             0
+(1 row)
+
+ pedidos_vault_sem_fact_order 
+------------------------------
+                            0
+(1 row)
+
+ validos_tempo_aprovacao | validos_tempo_preparacao | validos_tempo_transporte 
+-------------------------+--------------------------+--------------------------
+                   96464 |                    95112 |                    96446
+(1 row)
+

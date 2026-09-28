@@ -1,0 +1,40 @@
+ sat_order 
+-----------
+     99441
+(1 row)
+
+ total_linhas | orders_distintos 
+--------------+------------------
+        99441 |            99441
+(1 row)
+
+ approved_null | carrier_null 
+---------------+--------------
+           160 |         1783
+(1 row)
+
+ referencias_invalidas 
+-----------------------
+                     0
+(1 row)
+
+ registros_divergentes 
+-----------------------
+                     0
+(1 row)
+
+ pedidos_raw_sem_sat_order 
+---------------------------
+                         0
+(1 row)
+
+ hashdiffs_inconsistentes 
+--------------------------
+                        0
+(1 row)
+
+ validos_tempo_aprovacao | validos_tempo_preparacao | validos_tempo_transporte 
+-------------------------+--------------------------+--------------------------
+                   96464 |                    95112 |                    96446
+(1 row)
+

@@ -1,0 +1,38 @@
+============================================================
+M2 - Profiling dos atributos temporais
+============================================================
+ total_pedidos | pedidos_delivered 
+---------------+-------------------
+         99441 |             96478
+(1 row)
+
+ purchase_null | approved_null | carrier_null | delivered_null 
+---------------+---------------+--------------+----------------
+             0 |           160 |         1783 |           2965
+(1 row)
+
+ purchase_null_delivered | approved_null_delivered | carrier_null_delivered | delivered_null_delivered 
+-------------------------+-------------------------+------------------------+--------------------------
+                       0 |                      14 |                      2 |                        8
+(1 row)
+
+ delivered_com_todos_timestamps 
+--------------------------------
+                          96455
+(1 row)
+
+ aprovacao_antes_compra | carrier_antes_aprovacao | entrega_cliente_antes_carrier | entrega_cliente_antes_compra 
+------------------------+-------------------------+-------------------------------+------------------------------
+                      0 |                    1350 |                            23 |                            0
+(1 row)
+
+ validos_tempo_aprovacao | validos_tempo_preparacao | validos_tempo_transporte 
+-------------------------+--------------------------+--------------------------
+                   96464 |                    95112 |                    96446
+(1 row)
+
+  min_horas_aprovacao   |  media_horas_aprovacao  | max_horas_aprovacao  |  min_horas_preparacao  | media_horas_preparacao  | max_horas_preparacao  |  min_horas_transporte  |  media_horas_transporte  | max_horas_transporte  
+------------------------+-------------------------+----------------------+------------------------+-------------------------+-----------------------+------------------------+--------------------------+-----------------------
+ 0.00000000000000000000 | 10.27676701210353661009 | 741.4436111111111111 | 0.00416666666666666667 | 68.48196300151400454192 | 3018.3016666666666667 | 0.00000000000000000000 | 223.99924012746338192683 | 4924.5833333333333333
+(1 row)
+
